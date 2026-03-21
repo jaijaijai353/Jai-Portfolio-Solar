@@ -241,6 +241,10 @@ canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-eve
   opacity:0;
   cursor:pointer;
   will-change:transform,filter;
+  box-shadow: 
+    inset -20px -20px 60px rgba(0,0,0,0.4),
+    inset 10px 10px 40px rgba(255,255,255,0.1),
+    0 0 80px rgba(255,255,255,0.05);
 }
 /* Specular shine wrapper — sits on top of canvas */
 .pball-shine{
@@ -248,38 +252,51 @@ canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-eve
   pointer-events:none;z-index:2;
   transition:bottom 2.4s cubic-bezier(.33,0,0,1),opacity 1.8s ease,transform .5s cubic-bezier(.34,1.56,.64,1);
   opacity:0;
+  mix-blend-mode: overlay;
 }
-/* Shine gradient layers */
+/* Enhanced shine gradient layers for more realistic lighting */
 .pball-shine::before{
   content:'';position:absolute;inset:0;border-radius:50%;
   background:radial-gradient(
-    ellipse 55% 50% at 32% 28%,
-    rgba(255,255,255,.22) 0%,
-    rgba(255,255,255,.08) 35%,
-    transparent 65%
+    ellipse 45% 35% at 28% 25%,
+    rgba(255,255,255,0.4) 0%,
+    rgba(255,255,255,0.15) 25%,
+    rgba(255,255,255,0.05) 50%,
+    transparent 75%
   );
 }
 .pball-shine::after{
   content:'';position:absolute;inset:0;border-radius:50%;
   background:radial-gradient(
-    ellipse 30% 25% at 68% 72%,
-    rgba(255,255,255,.07) 0%,
-    transparent 60%
+    ellipse 25% 20% at 72% 68%,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.04) 35%,
+    transparent 65%
   );
 }
 .pball:hover{
   transform:translateX(-50%) scale(1.028);
   filter:brightness(1.18) saturate(1.2);
+  box-shadow: 
+    inset -20px -20px 60px rgba(0,0,0,0.3),
+    inset 10px 10px 40px rgba(255,255,255,0.15),
+    0 0 120px rgba(255,255,255,0.1);
 }
 .pball-glow{
   transition:bottom 2.4s cubic-bezier(.33,0,0,1),
              opacity 1.8s ease,
              transform .5s cubic-bezier(.34,1.56,.64,1),
              box-shadow .4s ease;
+  box-shadow: 
+    0 0 40px rgba(255,255,255,0.1),
+    0 0 80px rgba(255,255,255,0.05);
 }
 .pball:hover ~ .pball-glow,
 .slot.active:hover .pball-glow{
-  box-shadow:0 0 120px var(--pc),0 0 240px var(--pc,transparent)40;
+  box-shadow:
+    0 0 60px var(--pc),
+    0 0 120px var(--pc,transparent),
+    0 0 200px var(--pc,transparent);
 }
 
 /* Ripple ring on hover */
@@ -366,6 +383,100 @@ canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-eve
 #pdesc a::after{content:''}
 
 /* panel handled by panel_system.js */
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  /* Menu: bottom horizontal nav */
+  #menu {
+    left: 50% !important;
+    top: auto !important;
+    bottom: 2rem !important;
+    width: auto !important;
+    height: 60px !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    padding: 0 2rem !important;
+  }
+  .mi {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 !important;
+  }
+  
+  /* Pdesc: full width below stage */
+  #pdesc {
+    right: auto !important;
+    left: 50% !important;
+    top: auto !important;
+    bottom: 12rem !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 420px !important;
+  }
+  
+  /* Planets: scale down */
+  .pball {
+    width: 500px !important;
+    height: 500px !important;
+    bottom: -350px !important;
+  }
+  #horizon {
+    height: 150px !important;
+  }
+  
+  /* HUD adjustments */
+  .logo {
+    top: 1.5rem !important;
+    font-size: .7rem !important;
+  }
+  .hint {
+    bottom: 8rem !important;
+    font-size: .52rem !important;
+  }
+  #scroll-nav {
+    bottom: 10rem !important;
+    right: 2rem !important;
+    transform: none !important;
+  }
+  
+  /* Intro text scaling */
+  .i-name {
+    font-size: 2.2rem !important;
+  }
+  .i-role {
+    font-size: .75rem !important;
+  }
+  
+  /* Touch-friendly */
+  .mi {
+    touch-action: manipulation;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reductions */
+  .pball {
+    width: 380px !important;
+    height: 380px !important;
+    bottom: -280px !important;
+  }
+  #menu {
+    height: 50px !important;
+    gap: 1rem !important;
+    padding: 0 1.5rem !important;
+  }
+  #pdesc {
+    bottom: 10rem !important;
+    width: 95% !important;
+  }
+  .hint {
+    font-size: .48rem !important;
+  }
+}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -387,6 +498,16 @@ canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-eve
 </div>
 
 <div class="logo">JN<em>.</em>SPACE<span>JAI NARULA -- DATA ANALYST PORTFOLIO</span></div>
+
+<!-- Mobile menu button (hidden on desktop) -->
+<button class="mobile-menu-btn" id="mobile-menu-btn" style="display: none;">☰</button>
+
+<!-- Mobile menu overlay (hidden on desktop) -->
+<div class="mobile-menu-overlay" id="mobile-menu-overlay">
+  <button class="mobile-menu-close" id="mobile-menu-close" style="position: fixed; top: 20px; right: 20px; background: none; border: none; color: rgba(255,255,255,.8); font-size: 2rem; cursor: pointer; z-index: 101;">×</button>
+  <div id="mobile-menu-items"></div>
+</div>
+
 <div class="hint" id="hint">SELECT A PLANET FROM THE LEFT MENU</div>
 
 
@@ -498,7 +619,7 @@ const P = [
   },
   {
     id:'earth', name:'Earth', sec:'Experience', col:'#26daaa',
-    grad:'radial-gradient(circle at 40% 35%, #5ba4cf, #2d7ab0 20%, #1a5c3a 45%, #2d8a4a 60%, #1a4a8a 80%, #0d2a5a)',
+    grad:'radial-gradient(circle at 35% 30%, #87ceeb 0%, #4682b4 15%, #1e90ff 25%, #006994 40%, #2e5266 60%, #1a3a52 75%, #0d1f2d 90%, #000814 100%)',
     blurb:'CRM analytics at Jaro (LeadSquared, Power BI KRA dashboard). Google Ambassador Top 250 / 10K+. GDSC Lead.',
     panel:{
       title:'Experience', eye:'Earth - Work History',
@@ -513,7 +634,7 @@ const P = [
   },
   {
     id:'mars', name:'Mars', sec:'Achievements', col:'#e55f45',
-    grad:'radial-gradient(circle at 42% 38%, #d4704a, #b84820 30%, #8a2800 60%, #5a1800 85%)',
+    grad:'radial-gradient(circle at 38% 32%, #ff6b35 0%, #d84315 12%, #bf360c 25%, #8d2e0a 40%, #5d2f0a 60%, #3e1f04 75%, #1f0f02 90%, #0a0401 100%)',
     blurb:'NIAT 2025 shortlisted -- 500+ entries. Google Top 250 / 10,000+ pool. 3 cross-campus events, 200+ each.',
     panel:{
       title:'Achievements', eye:'Mars - Recognition',
@@ -528,7 +649,7 @@ const P = [
   },
   {
     id:'jupiter', name:'Jupiter', sec:'Certifications', col:'#c88b3a',
-    grad:'radial-gradient(circle at 50% 40%, #e8c878 0%, #c8985a 15%, #e0b868 30%, #a87840 45%, #d8a858 60%, #b88840 75%, #c89860 90%)',
+    grad:'radial-gradient(circle at 45% 35%, #f4e4c1 0%, #e8c4a0 8%, #d4a574 18%, #c19660 30%, #a67c52 45%, #8b6239 60%, #6b4423 75%, #4a2c1a 88%, #2a1810 100%)',
     blurb:'5 verified certs: Oracle Cloud AI (2027), Google Gemini (2028), Google Adv Analytics, KPMG Forage, PwC Power BI.',
     panel:{
       title:'Certifications', eye:'Jupiter - Credentials',
@@ -543,7 +664,7 @@ const P = [
   },
   {
     id:'saturn', name:'Saturn', sec:'Education', col:'#d4a840',
-    grad:'radial-gradient(circle at 42% 38%, #f0d890, #d4b060 30%, #b08840 60%, #8a6828 85%)',
+    grad:'radial-gradient(circle at 40% 33%, #faebd7 0%, #f0e68c 10%, #daa520 25%, #b8860b 40%, #8b7355 60%, #6b5d54 75%, #4a3c28 88%, #2a1f0f 100%)',
     blurb:'BBA Business Analytics, SRM University -- CGPA 7.91. French B1 DELF (May 2026). MBA Canada post-MNC experience.',
     panel:{
       title:'Education', eye:'Saturn - Academic Background',
@@ -558,7 +679,7 @@ const P = [
   },
   {
     id:'uranus', name:'Uranus', sec:'AI Projects', col:'#72e0e0',
-    grad:'radial-gradient(circle at 40% 38%, #c0f0f8, #80d8e8 30%, #50b8c8 60%, #2888a0 85%)',
+    grad:'radial-gradient(circle at 36% 30%, #4fd1c5 0%, #38b2ac 15%, #2c7a7b 30%, #234e52 45%, #1a365d 60%, #1e3a5f 75%, #2c5282 88%, #1a365d 100%)',
     blurb:'NIKA: Flask + React + Gemini AI. ETL pipeline -- upload, validate, clean, analyse, visualise. 20+ live users. NIAT 2025.',
     panel:{
       title:'NIKA AI', eye:'Uranus - AI Projects',
@@ -573,7 +694,7 @@ const P = [
   },
   {
     id:'neptune', name:'Neptune', sec:'Contact', col:'#4f83e2',
-    grad:'radial-gradient(circle at 38% 35%, #7090f0, #4060d0 30%, #2040a8 60%, #102080 85%)',
+    grad:'radial-gradient(circle at 32% 28%, #6495ed 0%, #4169e1 15%, #1e3a8a 30%, #1e40af 45%, #1e3a8a 60%, #172554 75%, #0f172a 88%, #020617 100%)',
     blurb:'Open to work -- Data Analyst / Business Analyst. Delhi NCR. +91 70424 26504. Degree completion June 2026.',
     panel:{
       title:'Vision', eye:'Neptune - Goals & Ambition',
@@ -589,7 +710,7 @@ const P = [
   },
   {
     id:'pluto', name:'Pluto', sec:'Resume', col:'#a0b4c8',
-    grad:'radial-gradient(circle at 40% 35%, #c8d4e0, #8090a0 30%, #506070 60%, #304050 85%)',
+    grad:'radial-gradient(circle at 38% 30%, #d3d3d3 0%, #a9a9a9 15%, #808080 30%, #696969 45%, #556b2d 60%, #2f4f2f 75%, #191970 88%, #000080 100%)',
     blurb:'Download or view my full resume -- BBA Analytics, SRM University. Degree completion June 2026.',
     panel:{
       title:'Resume', eye:'Pluto - Download CV',
@@ -2992,6 +3113,270 @@ const CONTENT_BUILDERS = [
 }
 #overlay.open{opacity:1;pointer-events:all}
 
+/* ---- MOBILE OPTIMIZATIONS ---- */
+@media (max-width: 768px) {
+  /* Hide left menu on mobile */
+  #menu {
+    display: none;
+  }
+  
+  /* Show mobile menu button */
+  .mobile-menu-btn {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 8px;
+    color: rgba(255,255,255,.8);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all .3s ease;
+  }
+  
+  .mobile-menu-btn:hover {
+    background: rgba(255,255,255,.2);
+    border-color: rgba(255,255,255,.4);
+  }
+  
+  /* Mobile menu overlay */
+  .mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.95);
+    z-index: 90;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+  }
+  
+  .mobile-menu-overlay.active {
+    display: flex;
+  }
+  
+  .mobile-menu-item {
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    color: rgba(255,255,255,.7);
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: color .3s ease;
+    text-align: center;
+  }
+  
+  .mobile-menu-item:hover,
+  .mobile-menu-item.active {
+    color: #fff;
+  }
+  
+  /* Adjust logo for mobile */
+  .logo {
+    top: 20px;
+    font-size: .7rem;
+  }
+  
+  .logo span {
+    font-size: .42rem;
+  }
+  
+  /* Adjust hint for mobile */
+  .hint {
+    bottom: 1rem;
+    font-size: .5rem;
+    padding: 4px 12px;
+  }
+  
+  /* Scale down planets for mobile */
+  .pball {
+    width: 500px;
+    height: 500px;
+    bottom: -400px;
+  }
+  
+  /* Adjust intro content for mobile */
+  .i-name {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+  
+  .i-role {
+    font-size: clamp(.7rem, 2.5vw, .9rem);
+  }
+  
+  .i-keywords {
+    max-width: 90vw;
+  }
+  
+  .i-kw {
+    font-size: .48rem;
+    padding: 2px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for small phones */
+  .pball {
+    width: 350px;
+    height: 350px;
+    bottom: -300px;
+  }
+  
+  .i-name {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+  
+  .i-greeting {
+    font-size: .5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .logo {
+    font-size: .6rem;
+  }
+  
+  .logo span {
+    font-size: .38rem;
+  }
+  
+  .hint {
+    font-size: .45rem;
+    bottom: .8rem;
+  }
+  
+  /* Mobile overlay optimizations */
+  #ov-panel {
+    width: 100%;
+    background: rgba(5,6,15,.98);
+  }
+  
+  #ov-content {
+    padding: 4rem 1.5rem 2rem;
+  }
+  
+  #ov-close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  
+  #ov-planet-badge {
+    top: 1rem;
+    right: 4.5rem;
+    font-size: .5rem;
+  }
+  
+  /* Adjust gradient for mobile */
+  #ov-gradient {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(5,6,15,.6) 50%,
+      rgba(5,6,15,.92) 70%,
+      rgba(5,6,15,.98) 85%
+    );
+  }
+  
+  /* Mobile typography */
+  .ov-label {
+    font-size: .52rem;
+    margin-bottom: .8rem;
+  }
+  
+  .ov-heading {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .ov-sub {
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .ov-item {
+    font-size: .9rem;
+    margin-bottom: .8rem;
+    line-height: 1.5;
+  }
+  
+  /* Mobile contact cards */
+  .ov-contact {
+    padding: 1rem;
+    margin-bottom: .8rem;
+  }
+  
+  .ov-contact-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+  
+  .ov-contact-name {
+    font-size: .9rem;
+  }
+  
+  .ov-contact-handle {
+    font-size: .8rem;
+  }
+  
+  /* Mobile stats */
+  .ov-stat {
+    padding: .8rem;
+  }
+  
+  .ov-stat-n {
+    font-size: 1.8rem;
+  }
+  
+  .ov-stat-l {
+    font-size: .75rem;
+  }
+  
+  /* Mobile buttons */
+  .ov-btn-primary {
+    padding: 1rem 2rem;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Mobile tags */
+  .ov-tag {
+    font-size: .7rem;
+    padding: .3rem .8rem;
+    margin: .2rem;
+  }
+  
+  /* Touch optimizations */
+  .mi, .pball, .ov-contact, #ov-close, .mobile-menu-btn, .mobile-menu-close {
+    -webkit-tap-highlight-color: rgba(255,255,255,.1);
+    touch-action: manipulation;
+  }
+  
+  /* Larger touch targets for mobile */
+  .mi {
+    padding: 8px;
+    min-height: 44px;
+  }
+  
+  .ov-contact {
+    min-height: 60px;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px;
+  }
+}
+
 /* Canvas fills full left half */
 #ov-canvas-wrap{
   position:absolute;inset:0;z-index:0;
@@ -3549,6 +3934,76 @@ function closeOverlay(){
 
 // ESC to close
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeOverlay(); });
+
+// ---- MOBILE MENU FUNCTIONALITY ----
+function initMobileMenu() {
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuItems = document.getElementById('mobile-menu-items');
+  
+  // Check if mobile
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+  
+  // Show/hide mobile menu button based on screen size
+  function updateMobileMenuVisibility() {
+    if (isMobile()) {
+      mobileMenuBtn.style.display = 'block';
+      // Build mobile menu items
+      buildMobileMenu();
+    } else {
+      mobileMenuBtn.style.display = 'none';
+      mobileMenuOverlay.classList.remove('active');
+    }
+  }
+  
+  // Build mobile menu from planet data
+  function buildMobileMenu() {
+    mobileMenuItems.innerHTML = '';
+    P.forEach((planet, index) => {
+      const item = document.createElement('div');
+      item.className = 'mobile-menu-item';
+      item.textContent = planet.name;
+      item.style.color = planet.col;
+      item.onclick = () => {
+        selectPlanet(index);
+        mobileMenuOverlay.classList.remove('active');
+      };
+      mobileMenuItems.appendChild(item);
+    });
+  }
+  
+  // Mobile menu event listeners
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuOverlay.classList.add('active');
+  });
+  
+  mobileMenuClose.addEventListener('click', () => {
+    mobileMenuOverlay.classList.remove('active');
+  });
+  
+  // Close mobile menu when clicking outside
+  mobileMenuOverlay.addEventListener('click', (e) => {
+    if (e.target === mobileMenuOverlay) {
+      mobileMenuOverlay.classList.remove('active');
+    }
+  });
+  
+  // Update on resize
+  window.addEventListener('resize', updateMobileMenuVisibility);
+  
+  // Initial check
+  updateMobileMenuVisibility();
+}
+
+// Initialize mobile menu when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+  initMobileMenu();
+}
 
 </script>
 </body>
