@@ -1,4 +1,3 @@
-# Jai-Portfolio-Solar
 # Jai Narula — Space Portfolio
 
 > An immersive solar system portfolio built entirely in a single HTML file. Each planet in the solar system represents a section of my professional profile. Click a planet to explore.
