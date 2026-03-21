@@ -1,0 +1,3412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jai Narula - Data Analyst & Business Analyst. BBA Business Analytics, SRM University. Builder of NIKA AI. SQL, Python, Power BI. Degree completion June 2026.">
+<meta name="keywords" content="Jai Narula, Data Analyst, Business Analyst, SQL, Python, Power BI, NIKA, Delhi NCR">
+<meta property="og:title" content="Jai Narula - Data Analytics Portfolio">
+<meta property="og:description" content="Builder of NIKA AI. Top 250 Google Ambassador. BBA Analytics, SRM University. Degree completion June 2026.">
+<meta name="theme-color" content="#000008">
+<title>Jai Narula — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Exo+2:wght@200;300;400;500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none;user-select:none}
+:root{
+  --c0:#ffcc44;--c1:#E8927C;--c2:#e8c060;--c3:#26daaa;--c4:#e55f45;
+  --c5:#c88b3a;--c6:#d4a840;--c7:#72e0e0;--c8:#4f83e2;
+  --orb:'Orbitron',monospace;--mono:'Share Tech Mono',monospace;--body:'Exo 2',sans-serif;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:var(--body)}
+
+/* ---- STARS ---- */
+canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ---- INTRO ---- */
+/* ---- LOADING SCREEN (soft & calm) ---- */
+#intro{
+  position:fixed;inset:0;z-index:900;
+  /* Skip link for screen readers */
+  background:#06080f;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity 1.4s ease;overflow:hidden;
+}
+#intro.out{opacity:0;pointer-events:none}
+
+#intro-canvas{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;
+  opacity:.85;
+}
+
+.intro-content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;text-align:center;
+}
+
+/* Greeting line */
+.i-greeting{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.38em;
+  color:rgba(200,210,255,.3);text-transform:uppercase;
+  margin-bottom:1.6rem;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+.i-greeting.in{opacity:1}
+
+/* Name */
+.i-name{
+  font-family:var(--orb);font-weight:800;
+  font-size:clamp(2.6rem,6.5vw,5rem);
+  letter-spacing:.1em;color:#fff;
+  line-height:1;margin-bottom:.5rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.i-name-ch{
+  display:inline-block;
+  opacity:0;transform:translateY(22px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);
+}
+.i-name-ch.in{opacity:1;transform:none}
+.i-name em{color:rgba(160,180,255,.9);font-style:normal}
+
+/* Thin rule */
+.i-rule{
+  width:0;height:1px;margin:.9rem auto 1rem;
+  background:rgba(160,180,255,.2);
+  transition:width 1.2s cubic-bezier(.22,1,.36,1);
+}
+.i-rule.in{width:200px}
+
+/* Typed role */
+.i-role{
+  font-family:var(--body);font-weight:300;
+  font-size:clamp(.8rem,1.6vw,1rem);
+  letter-spacing:.18em;color:rgba(180,195,255,.55);
+  min-height:1.5em;margin-bottom:1.6rem;
+  text-transform:uppercase;
+}
+.i-cur{
+  display:inline-block;width:1px;height:.85em;
+  background:rgba(180,195,255,.5);margin-left:3px;vertical-align:middle;
+  animation:softblink 1.1s ease-in-out infinite;
+}
+@keyframes softblink{0%,100%{opacity:.8}50%{opacity:0}}
+
+/* Keywords — soft pills */
+.i-keywords{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;
+  max-width:480px;margin-bottom:2rem;
+  opacity:0;transition:opacity 1s ease;
+}
+.i-keywords.in{opacity:1}
+.i-kw{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;
+  padding:3px 11px;border-radius:100px;
+  border:1px solid rgba(160,180,255,.12);
+  color:rgba(180,200,255,.38);
+  background:rgba(160,180,255,.04);
+  opacity:0;transform:translateY(6px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.i-kw.in{opacity:1;transform:none}
+
+/* Progress */
+.i-progress-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  opacity:0;transition:opacity .8s ease;
+}
+.i-progress-wrap.in{opacity:1}
+.i-bw{
+  width:180px;height:1px;
+  background:rgba(255,255,255,.07);border-radius:1px;overflow:hidden;
+}
+.i-b{
+  height:100%;width:0;
+  background:rgba(180,200,255,.5);
+  transition:width .08s linear;
+  border-radius:1px;
+}
+.i-msg{
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;
+  color:rgba(180,200,255,.3);text-transform:uppercase;min-height:1em;
+}
+/* ---- FIXED UI ---- */
+.logo{position:fixed;top:24px;left:0;right:0;text-align:center;z-index:50;pointer-events:none;
+  font-family:var(--orb);font-weight:700;font-size:.8rem;letter-spacing:.14em;color:rgba(255,255,255,.7)}
+.logo em{color:#00e5ff;font-style:normal}
+.logo span{display:block;font-family:var(--mono);font-size:.48rem;letter-spacing:.2em;color:rgba(255,255,255,.2);margin-top:3px}
+
+.hint{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:50;pointer-events:none;
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:rgba(0,229,255,.45);
+  padding:6px 18px;border:1px solid rgba(0,229,255,.12);border-radius:100px;
+  background:rgba(0,0,20,.5);backdrop-filter:blur(10px);animation:hpulse 3s ease-in-out infinite;transition:opacity .5s}
+@keyframes hpulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ---- LEFT MENU ---- */
+#menu{
+  position:fixed;left:0;top:0;bottom:0;z-index:50;width:220px;
+  background:linear-gradient(to right,rgba(0,0,0,.55) 0%,transparent 100%);
+}
+.mi{
+  position:absolute;left:18px;
+  display:flex;align-items:center;gap:10px;
+  cursor:pointer;opacity:.35;
+  transition:opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+/* Tooltip on menu hover */
+.mi[data-tip]:hover::after{
+  content:attr(data-tip);
+  position:absolute;left:calc(100% + 10px);top:50%;
+  transform:translateY(-50%);
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;
+  color:#fff;background:rgba(10,12,28,.95);
+  border:1px solid rgba(255,255,255,.12);
+  padding:4px 12px;border-radius:4px;
+  white-space:nowrap;pointer-events:none;
+  backdrop-filter:blur(12px);
+  opacity:0;animation:tipfade .15s ease forwards;
+}
+@keyframes tipfade{to{opacity:1}}
+.mi:hover{opacity:.85;transform:translateX(5px)}
+.mi.on{opacity:1;transform:translateX(6px)}
+
+/* Dot */
+.mi-dot{
+  width:8px;height:8px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.25);
+  flex-shrink:0;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+}
+.mi:hover .mi-dot{
+  transform:scale(1.4);
+  border-color:var(--pc,#fff);
+  box-shadow:0 0 8px var(--pc,#fff);
+}
+.mi.on .mi-dot{
+  border-color:var(--pc,#fff);
+  background:var(--pc,#fff);
+  box-shadow:0 0 10px var(--pc,#fff),0 0 20px var(--pc,transparent);
+  transform:scale(1.5);
+}
+
+/* Active left accent bar */
+.mi.on::before{
+  content:'';
+  position:absolute;left:-18px;top:50%;transform:translateY(-50%);
+  width:3px;height:24px;border-radius:0 2px 2px 0;
+  background:var(--pc,#fff);
+  box-shadow:0 0 8px var(--pc,#fff);
+  transition:all .3s ease;
+}
+
+/* Text */
+.mi-info h2{
+  font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:2px;
+  color:white;margin:0 0 2px;font-weight:400;opacity:.5;
+  transition:opacity .25s,letter-spacing .3s;
+}
+.mi:hover .mi-info h2,.mi.on .mi-info h2{opacity:1;letter-spacing:2.5px}
+.mi-info h3{
+  font-family:var(--mono);font-size:8px;letter-spacing:1px;
+  color:rgba(0,229,255,.45);margin:0;font-weight:400;
+  transition:color .25s;
+}
+.mi:hover .mi-info h3{color:var(--pc,rgba(0,229,255,.6))}
+.mi-num{
+  position:absolute;left:42px;
+  font-family:var(--mono);font-size:7px;letter-spacing:.06em;
+  color:rgba(255,255,255,.1);top:50%;transform:translateY(-50%);
+}
+
+/* ---- PLANET STAGE ---- */
+#stage{position:fixed;inset:0;z-index:1;overflow:hidden;background:#000}
+
+.slot{
+  position:absolute;inset:0;
+  pointer-events:none;
+}
+.slot.active{ pointer-events:all; }
+
+/* Planet canvas */
+.pball{
+  width:900px;height:900px;border-radius:50%;
+  position:absolute;left:50%;
+  bottom:-700px;
+  transform:translateX(-50%) scale(1);
+  background-size:cover;
+  transition:bottom 2.4s cubic-bezier(.33,0,0,1),
+             opacity 1.8s ease,
+             transform .5s cubic-bezier(.34,1.56,.64,1),
+             filter .4s ease;
+  opacity:0;
+  cursor:pointer;
+  will-change:transform,filter;
+}
+/* Specular shine wrapper — sits on top of canvas */
+.pball-shine{
+  position:absolute;border-radius:50%;
+  pointer-events:none;z-index:2;
+  transition:bottom 2.4s cubic-bezier(.33,0,0,1),opacity 1.8s ease,transform .5s cubic-bezier(.34,1.56,.64,1);
+  opacity:0;
+}
+/* Shine gradient layers */
+.pball-shine::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(
+    ellipse 55% 50% at 32% 28%,
+    rgba(255,255,255,.22) 0%,
+    rgba(255,255,255,.08) 35%,
+    transparent 65%
+  );
+}
+.pball-shine::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(
+    ellipse 30% 25% at 68% 72%,
+    rgba(255,255,255,.07) 0%,
+    transparent 60%
+  );
+}
+.pball:hover{
+  transform:translateX(-50%) scale(1.028);
+  filter:brightness(1.18) saturate(1.2);
+}
+.pball-glow{
+  transition:bottom 2.4s cubic-bezier(.33,0,0,1),
+             opacity 1.8s ease,
+             transform .5s cubic-bezier(.34,1.56,.64,1),
+             box-shadow .4s ease;
+}
+.pball:hover ~ .pball-glow,
+.slot.active:hover .pball-glow{
+  box-shadow:0 0 120px var(--pc),0 0 240px var(--pc,transparent)40;
+}
+
+/* Ripple ring on hover */
+.slot.active .pball::after{
+  content:'';
+  position:absolute;inset:-12px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.12);
+  opacity:0;transform:scale(.96);
+  transition:opacity .4s,transform .4s;
+  pointer-events:none;
+}
+.slot.active .pball:hover::after{
+  opacity:1;transform:scale(1.01);
+}
+
+/* Bottom horizon fade */
+#horizon{
+  position:fixed;bottom:0;left:0;right:0;height:220px;z-index:2;pointer-events:none;
+  background:linear-gradient(to top, #000 0%, #000 45%, transparent 100%);
+}
+
+/* ---- SCROLL HINT ---- */
+#scroll-nav{
+  position:fixed;bottom:5.5rem;right:1.8rem;z-index:50;
+  display:flex;flex-direction:column;align-items:center;gap:.35rem;
+  opacity:0;transition:opacity .5s ease;pointer-events:none;
+}
+#scroll-nav.show{opacity:1;pointer-events:all}
+.snav-btn{
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.45);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.75rem;
+  transition:all .2s;
+  backdrop-filter:blur(10px);
+}
+.snav-btn:hover{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.4);transform:scale(1.1)}
+.snav-dots{display:flex;flex-direction:column;gap:.28rem;padding:.4rem 0}
+.snav-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,.18);
+  cursor:pointer;transition:all .22s;
+}
+.snav-dot.on{background:#fff;box-shadow:0 0 6px #fff;transform:scale(1.3)}
+.snav-dot:hover{background:rgba(255,255,255,.6);transform:scale(1.2)}
+
+/* Planet description - fixed on right side */
+#pdesc{
+  position:fixed;right:4%;top:50%;
+  transform:translateY(-50%) translateX(20px);
+  z-index:10;width:340px;
+  opacity:0;transition:opacity .6s ease,transform .6s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+#pdesc.show{opacity:1;transform:translateY(-50%) translateX(0);pointer-events:all}
+#pdesc h2{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.28em;
+  text-transform:uppercase;margin-bottom:.75rem;display:block;
+  opacity:.7;
+}
+#pdesc h1{
+  font-family:var(--orb);font-weight:900;font-size:clamp(1.8rem,3.5vw,2.8rem);
+  letter-spacing:.02em;color:#fff;margin-bottom:.9rem;line-height:1.05;
+}
+#pdesc p{
+  font-family:var(--body);font-size:.88rem;font-weight:300;line-height:1.82;
+  color:rgba(195,215,245,.65);margin-bottom:1.6rem;max-width:340px;
+}
+#pdesc a{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:11px 26px;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;text-decoration:none;border-radius:6px;
+  border:1px solid;color:white;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  background:rgba(0,0,0,.45);backdrop-filter:blur(16px);cursor:pointer;
+}
+#pdesc a:hover{
+  background:rgba(255,255,255,.12);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+#pdesc a::after{content:''}
+
+/* panel handled by panel_system.js */
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+<div id="intro">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-content">
+    <div class="i-greeting" id="i-greeting">welcome to my portfolio</div>
+    <div class="i-name" id="i-name"></div>
+    <div class="i-rule" id="i-rule"></div>
+    <div class="i-role"><span id="irole"></span><span class="i-cur"></span></div>
+    <div class="i-keywords" id="i-keywords"></div>
+    <div class="i-progress-wrap" id="i-progress-wrap">
+      <div class="i-bw"><div class="i-b" id="ibar"></div></div>
+      <div class="i-msg" id="imsg">loading</div>
+    </div>
+  </div>
+</div>
+
+<div class="logo">JN<em>.</em>SPACE<span>JAI NARULA -- DATA ANALYST PORTFOLIO</span></div>
+<div class="hint" id="hint">SELECT A PLANET FROM THE LEFT MENU</div>
+
+
+<!-- Stars canvas -->
+<canvas id="stars" role="img" aria-label="Animated starfield background" aria-hidden="true"></canvas>
+
+<!-- Menu built by JS -->
+<div id="menu"></div>
+
+<!-- Planet stage built by JS -->
+<div id="stage"></div>
+
+<!-- Horizon gradient -->
+<div id="horizon"></div>
+
+<!-- Scroll nav -->
+<div id="scroll-nav">
+  <button class="snav-btn" id="snav-up" title="Previous planet">&#8679;</button>
+  <div class="snav-dots" id="snav-dots"></div>
+  <button class="snav-btn" id="snav-dn" title="Next planet">&#8681;</button>
+</div>
+
+<!-- Right side description -->
+<div id="pdesc">
+  <h2 id="pd-eye"></h2>
+  <h1 id="pd-name"></h1>
+  <p id="pd-blurb"></p>
+  <a id="pd-btn" onclick="">Full Details &rarr;</a>
+</div>
+
+<!-- overlay injected by panel_system.js -->
+
+<script>
+'use strict';
+
+// ---- PLANET DATA ----
+const P = [
+  {
+    id:'sun', name:'The Sun', sec:'About Me', col:'#ffcc44',
+    grad:'radial-gradient(circle at 40% 40%, #fff7aa, #ffcc00 25%, #ff8800 55%, #cc4400 80%, #882200)',
+    blurb:'BBA Analytics, SRM University. Builder of NIKA -- 20+ live users. Top 250 Google Ambassador (10K+ pool). Degree completion June 2026.',
+    panel:{
+      title:'Jai Narula', eye:'The Sun - About Me',
+      desc:'BBA Analytics student at SRM University, Delhi NCR. Builder of NIKA. Top 250 Google Ambassador nationally out of 10,000+. Degree completion June 2026.',
+      secs:[
+        {t:'Identity',li:['Jai Narula - 20, New Delhi','BBA Business Analytics, SRM University (Jun 2026)','CGPA 7.91 | French B1 (Alliance Francaise)']},
+        {t:'What Makes Me Different',li:['Built NIKA - AI analytics platform, 20+ institutional users','Non-CS = business-first thinking on data problems','NIAT 2025 shortlisted - OpenAI x NxtWave, 500+ entries','Top 250 Google Ambassador nationally (10,000+ pool)']},
+        {t:'Target Roles',li:['Data Analyst or Business Analyst at an MNC','Genpact, EXL, Accenture, S&P Global, KPMG, Deloitte USI','Delhi NCR preferred - open to Bengaluru, Hyderabad, Mumbai','Degree completion June 2026']}
+      ],
+      tags:['Data Analyst','SQL','Python','Power BI','NIKA','Delhi NCR'],
+      acts:[{l:'Get In Touch',h:'mailto:jai.narula08@gmail.com',p:true},{l:'LinkedIn',h:'https://www.linkedin.com/in/jai-narula-aa3185242/',p:false}]
+    }
+  },
+  {
+    id:'mercury', name:'Mercury', sec:'Skills', col:'#E8927C',
+    grad:'radial-gradient(circle at 38% 38%, #c8b89a, #a0897a 30%, #7a6358 60%, #4a3830 85%)',
+    blurb:'SQL -- CTEs, window functions. Power BI -- DAX, star schema. Python -- Pandas, EDA. 10+ tools, 3 live projects.',
+    panel:{
+      title:'Skills', eye:'Mercury - Technical Stack',
+      desc:'Technical stack built for real analytics work - not just coursework.',
+      secs:[
+        {t:'Data & Query',li:['SQL - Joins, CTEs, Window Functions, Subqueries','Python - Pandas, NumPy, Matplotlib, Seaborn','Excel - Pivot Tables, XLOOKUP, VBA, Data Models']},
+        {t:'BI & Visualization',li:['Power BI - DAX, Power Query, Star Schema','Dashboard Design - KPI Scorecards, Stakeholder Reporting','Google Analytics - GA4, Funnels, Cohort Analysis']},
+        {t:'Analytics Methods',li:['EDA, Funnel Analysis, Cohort Analysis, Variance Analysis','CRM Analytics - LeadSquared, Lead Scoring','ETL Pipelines, Root Cause Analysis, Ad Hoc Reporting']}
+      ],
+      tags:['SQL','Python','Power BI','Excel','DAX','Pandas','LeadSquared']
+    }
+  },
+  {
+    id:'venus', name:'Venus', sec:'Projects', col:'#e8c060',
+    grad:'radial-gradient(circle at 45% 35%, #f5e090, #d4a840 30%, #b07820 60%, #7a5010 85%)',
+    blurb:'NIKA: 20+ institutional users live. Blinkit: Star schema, RFM, DAX time intelligence. Netflix: 5,000+ record EDA pipeline.',
+    panel:{
+      title:'Projects', eye:'Venus - Selected Work',
+      desc:'Three production-deployed projects covering the full analytics lifecycle.',
+      secs:[
+        {t:'NIKA - AI Analytics Platform',li:['Full-stack AI analytics using Gemini AI + Flask + React','Upload data -> automated stats -> natural language insights','Shortlisted at NIAT 2025 (OpenAI x NxtWave, 500+ entries)','20+ active institutional users post-deployment']},
+        {t:'Blinkit Regional Sales Dashboard',li:['Power BI KPI scorecard, Star Schema (5 tables)','DAX time intelligence - revenue, fulfillment, RFM','Eliminated manual reporting for cross-functional teams']},
+        {t:'Netflix Content EDA Pipeline',li:['Python EDA pipeline on 5,000+ records','Automated validation, outlier detection, cleansing','Found 3x spike in international originals post-2015']}
+      ],
+      tags:['NIKA','Power BI','Python','Gemini AI','ETL','EDA','Vercel'],
+      acts:[{l:'Open NIKA',h:'https://nika-xi.vercel.app/',p:true},{l:'GitHub',h:'https://github.com/jaijaijai353',p:false}]
+    }
+  },
+  {
+    id:'earth', name:'Earth', sec:'Experience', col:'#26daaa',
+    grad:'radial-gradient(circle at 40% 35%, #5ba4cf, #2d7ab0 20%, #1a5c3a 45%, #2d8a4a 60%, #1a4a8a 80%, #0d2a5a)',
+    blurb:'CRM analytics at Jaro (LeadSquared, Power BI KRA dashboard). Google Ambassador Top 250 / 10K+. GDSC Lead.',
+    panel:{
+      title:'Experience', eye:'Earth - Work History',
+      desc:'Real-world analytics across sales ops, community growth, and tech leadership.',
+      secs:[
+        {t:'Jaro Education - Graduate Trainee (Jan-Mar 2026)',li:['CRM pipeline across 3+ EdTech verticals in LeadSquared','100+ weekly leads segmented by fit, budget and intent','Monthly Power BI dashboard tracking KRAs and conversion','250+ daily outreach, 6 qualified conversions/day']},
+        {t:'Google India - Student Ambassador (Aug-Dec 2025)',li:['Top 250 nationally among 10,000+ ambassadors','Built Google community of 500+ students from zero','Led 10+ workshops, 3 cross-campus events (200+ each)','Open-sourced Gemini prompt launcher - 500+ users']},
+        {t:'Google Developer Student Clubs - Lead (2023-2024)',li:['Led hackathons, workshops, speaker sessions','Grew active membership 50% through strategic outreach']}
+      ],
+      tags:['LeadSquared','Power BI','Google','CRM','Analytics','Community']
+    }
+  },
+  {
+    id:'mars', name:'Mars', sec:'Achievements', col:'#e55f45',
+    grad:'radial-gradient(circle at 42% 38%, #d4704a, #b84820 30%, #8a2800 60%, #5a1800 85%)',
+    blurb:'NIAT 2025 shortlisted -- 500+ entries. Google Top 250 / 10,000+ pool. 3 cross-campus events, 200+ each.',
+    panel:{
+      title:'Achievements', eye:'Mars - Recognition',
+      desc:'Recognition that differentiates from a pool of 10,000+ applicants.',
+      secs:[
+        {t:'Hackathon Recognition',li:['NIAT 2025 - Shortlisted among 500+ submissions','OpenAI x NxtWave - selected at national level','NIKA deployed live to 20+ institutional users post-hackathon']},
+        {t:'National Rankings',li:['Top 250 Google Ambassador (10,000+ candidate pool)','Rank secured through community building and measurable impact']},
+        {t:'Community Impact',li:['3 cross-campus events - 200+ participants each','500+ student Google community built from scratch','Open-source Gemini tool - 500+ users adopted']}
+      ],
+      tags:['NIAT 2025','Google Top 250','OpenAI','NxtWave']
+    }
+  },
+  {
+    id:'jupiter', name:'Jupiter', sec:'Certifications', col:'#c88b3a',
+    grad:'radial-gradient(circle at 50% 40%, #e8c878 0%, #c8985a 15%, #e0b868 30%, #a87840 45%, #d8a858 60%, #b88840 75%, #c89860 90%)',
+    blurb:'5 verified certs: Oracle Cloud AI (2027), Google Gemini (2028), Google Adv Analytics, KPMG Forage, PwC Power BI.',
+    panel:{
+      title:'Certifications', eye:'Jupiter - Credentials',
+      desc:'Industry certifications validating core analytics and cloud competencies.',
+      secs:[
+        {t:'Active Certifications',li:['Oracle Cloud AI & Data Science Professional - valid 2027','Google Gemini Certified - valid 2028','Google Advanced Data Analytics']},
+        {t:'Virtual Internship Simulations',li:['KPMG Data Analytics Consulting - Forage','PwC Power BI Virtual Case Experience - Forage']},
+        {t:'In Progress',li:['French B1 DELF - Alliance Francaise Delhi (May 2026)','BBA Business Analytics - SRM University (Jun 2026)']}
+      ],
+      tags:['Oracle Cloud','Google','KPMG','PwC','Forage']
+    }
+  },
+  {
+    id:'saturn', name:'Saturn', sec:'Education', col:'#d4a840',
+    grad:'radial-gradient(circle at 42% 38%, #f0d890, #d4b060 30%, #b08840 60%, #8a6828 85%)',
+    blurb:'BBA Business Analytics, SRM University -- CGPA 7.91. French B1 DELF (May 2026). MBA Canada post-MNC experience.',
+    panel:{
+      title:'Education', eye:'Saturn - Academic Background',
+      desc:'Academic foundation blending business strategy with quantitative analytics.',
+      secs:[
+        {t:'BBA - Business Analytics',li:['SRM University, Delhi NCR','CGPA: 7.91 / 10.0','Aug 2023 - Jun 2026 (Expected)','Stats, Data Management, Business Intelligence, Ops Analytics']},
+        {t:'Diploma in French - B1',li:['Alliance Francaise Delhi','DELF B1 (In Progress, May 2026)','Opens Francophone MBA pathways']},
+        {t:'Future Plans',li:['Offline MBA after 2-3 years of MNC experience','Canada: Rotman (Toronto), Ivey (Western), Desautels (McGill)']}
+      ],
+      tags:['SRM University','CGPA 7.91','BBA','French B1','Canada MBA']
+    }
+  },
+  {
+    id:'uranus', name:'Uranus', sec:'AI Projects', col:'#72e0e0',
+    grad:'radial-gradient(circle at 40% 38%, #c0f0f8, #80d8e8 30%, #50b8c8 60%, #2888a0 85%)',
+    blurb:'NIKA: Flask + React + Gemini AI. ETL pipeline -- upload, validate, clean, analyse, visualise. 20+ live users. NIAT 2025.',
+    panel:{
+      title:'NIKA AI', eye:'Uranus - AI Projects',
+      desc:'NIKA - the flagship AI project that defines this portfolio. Full-stack, deployed, 20+ active users.',
+      secs:[
+        {t:'Architecture & Stack',li:['Flask backend + React frontend','Gemini AI - NL insight generation, automated EDA narration','ETL: upload -> validate -> clean -> analyze -> visualize','REST API with live dashboard','Deployed on Vercel - 20+ active users']},
+        {t:'Impact',li:['20+ institutional users (faculty + admin at SRM University)','Used for real institutional performance tracking','Shortlisted at NIAT 2025 - OpenAI x NxtWave, 500+ submissions']}
+      ],
+      tags:['NIKA','Gemini AI','Flask','React','Python','Vercel','REST API'],
+      acts:[{l:'Open NIKA',h:'https://nika-xi.vercel.app/',p:true},{l:'GitHub',h:'https://github.com/jaijaijai353',p:false}]
+    }
+  },
+  {
+    id:'neptune', name:'Neptune', sec:'Contact', col:'#4f83e2',
+    grad:'radial-gradient(circle at 38% 35%, #7090f0, #4060d0 30%, #2040a8 60%, #102080 85%)',
+    blurb:'Open to work -- Data Analyst / Business Analyst. Delhi NCR. +91 70424 26504. Degree completion June 2026.',
+    panel:{
+      title:'Vision', eye:'Neptune - Goals & Ambition',
+      desc:'Where this journey is headed - near-term targets and long-range ambitions.',
+      secs:[
+        {t:'Immediate (2026)',li:['Data/Business Analyst at an MNC','Target: Genpact, EXL, Accenture, S&P Global, KPMG, Deloitte USI','Delhi NCR preferred - open to Bengaluru, Hyderabad, Mumbai','Degree completion June 2026']},
+        {t:'2-3 Year Vision',li:['3-4 years of MNC analytics experience','Senior analytics, BI lead, or consulting','MBA in Canada: Rotman, Ivey, Desautels']},
+        {t:'Long-Term',li:['Build data products at enterprise scale','Analytics leadership bridging data and C-suite','Potential entrepreneurship in analytics/AI tooling']}
+      ],
+      tags:['MNC Target','Data Analyst','MBA Canada','Strategy'],
+      acts:[{l:'Get In Touch',h:'mailto:jai.narula08@gmail.com',p:true},{l:'LinkedIn',h:'https://www.linkedin.com/in/jai-narula-aa3185242/',p:false}]
+    }
+  }
+];
+
+// ---- STARS (live animated) ----
+(function(){
+  const c = document.getElementById('stars');
+  c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none';
+  const ctx = c.getContext('2d');
+  let W, H;
+
+  // Star types
+  const STAR_COUNT = window.innerWidth < 768 ? 180 : 320;
+  const SHOOT_MAX  = 3;   // max simultaneous shooting stars
+  let stars = [], shooters = [], frame = 0;
+
+  function randRange(a,b){ return a + Math.random()*(b-a); }
+
+  function initStars(){
+    stars = [];
+    for(let i = 0; i < STAR_COUNT; i++){
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H * .78,
+        r: randRange(.12, 1.3),
+        // base opacity bucket: dim / mid / bright
+        baseOp: Math.random() < .65 ? randRange(.08,.28)
+               : Math.random() < .7  ? randRange(.3,.55)
+               :                       randRange(.6,.92),
+        // twinkle phase and speed unique per star
+        phase:  Math.random() * Math.PI * 2,
+        speed:  randRange(.003, .018),
+        // occasional blue or warm tint
+        hue:    Math.random() < .12 ? 210
+               : Math.random() < .08 ? 30
+               : 0,
+        sat:    Math.random() < .2  ? randRange(20,55) : 0,
+        // rare larger "star with spikes"
+        spike:  Math.random() < .04,
+      });
+    }
+  }
+
+  // Draw a 4-point diffraction spike for bright stars
+  function drawSpike(ctx, x, y, r, op){
+    const len = r * 5;
+    ctx.save();
+    ctx.globalAlpha = op * .55;
+    ctx.strokeStyle = 'rgba(220,235,255,1)';
+    ctx.lineWidth = .5;
+    // horizontal
+    const gH = ctx.createLinearGradient(x-len,y,x+len,y);
+    gH.addColorStop(0,'rgba(220,235,255,0)');
+    gH.addColorStop(.5,'rgba(220,235,255,1)');
+    gH.addColorStop(1,'rgba(220,235,255,0)');
+    ctx.strokeStyle = gH;
+    ctx.beginPath(); ctx.moveTo(x-len,y); ctx.lineTo(x+len,y); ctx.stroke();
+    // vertical
+    const gV = ctx.createLinearGradient(x,y-len,x,y+len);
+    gV.addColorStop(0,'rgba(220,235,255,0)');
+    gV.addColorStop(.5,'rgba(220,235,255,1)');
+    gV.addColorStop(1,'rgba(220,235,255,0)');
+    ctx.strokeStyle = gV;
+    ctx.beginPath(); ctx.moveTo(x,y-len); ctx.lineTo(x,y+len); ctx.stroke();
+    ctx.restore();
+  }
+
+  // Shooting star factory
+  function spawnShooter(){
+    // Varied entry points -- some from top, some from top-left, some dramatic diagonals
+    const types = [
+      {angle:randRange(.2,.4),  xRange:[.05,.6],  yRange:[.01,.12], speed:randRange(9,18),  len:randRange(140,280), w:randRange(.8,2.2)},
+      {angle:randRange(.35,.55),xRange:[.2,.8],   yRange:[.01,.08], speed:randRange(6,11),  len:randRange(80,180),  w:randRange(.4,1.2)},
+      {angle:randRange(.1,.25), xRange:[.0,.4],   yRange:[.0,.2],   speed:randRange(14,22), len:randRange(200,380), w:randRange(1.0,2.8)},
+    ];
+    const tp = types[Math.floor(Math.random()*types.length)];
+    return {
+      x: randRange(W*tp.xRange[0], W*tp.xRange[1]),
+      y: randRange(H*tp.yRange[0], H*tp.yRange[1]),
+      vx: Math.cos(tp.angle) * tp.speed,
+      vy: Math.sin(tp.angle) * tp.speed,
+      len: tp.len,
+      op: 0, life: 0,
+      maxLife: randRange(35, 75),
+      width: tp.w,
+      // Rich meteor colors -- real meteor palette (mineral ablation)
+      tint: (function(){
+        const r = Math.random();
+        if(r < .22) return '255,255,255';       // white -- common
+        if(r < .38) return '200,220,255';       // blue-white (magnesium)
+        if(r < .50) return '255,200,80';        // golden-yellow (sodium)
+        if(r < .60) return '255,130,60';        // deep orange (iron)
+        if(r < .68) return '140,220,255';       // cyan (copper/zinc)
+        if(r < .75) return '180,255,140';       // lime green (nickel)
+        if(r < .81) return '255,80,120';        // rose-red (lithium)
+        if(r < .87) return '200,140,255';       // violet (potassium)
+        if(r < .92) return '80,200,255';        // electric blue (calcium)
+        return '255,240,200';                   // warm cream (silicon)
+      })(),
+    };
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    frame++;
+
+    // -- Nebula glow blobs (subtle, slow-moving) -------------
+    const blobDefs = [
+      {xr:.18, yr:.12, rx:.22, ry:.16, h:220, op:.022},
+      {xr:.72, yr:.08, rx:.28, ry:.18, h:260, op:.018},
+      {xr:.48, yr:.22, rx:.18, ry:.14, h:200, op:.015},
+      {xr:.85, yr:.3,  rx:.2,  ry:.15, h:280, op:.014},
+    ];
+    blobDefs.forEach((b,i)=>{
+      const cx = (b.xr + Math.sin(frame*.0008+i)*0.025) * W;
+      const cy = (b.yr + Math.cos(frame*.0006+i)*0.02)  * H;
+      const rx = b.rx * W, ry = b.ry * H;
+      const r  = Math.max(rx,ry);
+      // ellipse via scale trick
+      ctx.save();
+      ctx.scale(rx/r, ry/r);
+      const g = ctx.createRadialGradient(cx*(r/rx),cy*(r/ry),0,cx*(r/rx),cy*(r/ry),r);
+      g.addColorStop(0, `hsla(${b.h},55%,65%,${b.op})`);
+      g.addColorStop(1, `hsla(${b.h},55%,65%,0)`);
+      ctx.fillStyle = g; ctx.fillRect(0,0,W*(r/rx),H*(r/ry));
+      ctx.restore();
+    });
+
+    // -- Stars -----------------------------------------------
+    stars.forEach(s=>{
+      s.phase += s.speed;
+      // Smooth multi-frequency twinkle
+      const twinkle = .5 + .3*Math.sin(s.phase) + .2*Math.sin(s.phase*2.3+1.1);
+      const op = Math.max(.02, Math.min(1, s.baseOp * (0.6 + twinkle * 0.8)));
+
+      // Color
+      let fillStyle;
+      if(s.sat > 0){
+        fillStyle = `hsla(${s.hue},${s.sat}%,92%,${op})`;
+      } else {
+        const v = Math.round(220 + op*35);
+        fillStyle = `rgba(${v},${v},${Math.round(v+15)},${op})`;
+      }
+
+      // Glow for brighter stars
+      if(s.baseOp > .5 && op > .4){
+        const glow = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*5);
+        glow.addColorStop(0, fillStyle);
+        glow.addColorStop(1, 'rgba(200,215,255,0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r*5,0,Math.PI*2); ctx.fill();
+      }
+
+      // Core dot
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = fillStyle; ctx.fill();
+
+      // Diffraction spikes on the rare big bright ones
+      if(s.spike && op > .5) drawSpike(ctx, s.x, s.y, s.r, op);
+    });
+
+    // -- Shooting stars ---------------------------------------
+    // Randomly spawn
+    if(shooters.length < SHOOT_MAX && Math.random() < .012){
+      shooters.push(spawnShooter());
+    }
+    shooters = shooters.filter(sh => sh.life < sh.maxLife);
+    shooters.forEach(sh=>{
+      sh.life++;
+      sh.x += sh.vx; sh.y += sh.vy;
+      // Fade in then fade out
+      const prog = sh.life / sh.maxLife;
+      sh.op = prog < .2 ? prog/.2 : prog > .7 ? 1-(prog-.7)/.3 : 1;
+
+      // Trail
+      const tailLen = sh.len;
+      const hypot = Math.hypot(sh.vx, sh.vy);
+      const dx = -sh.vx/hypot, dy = -sh.vy/hypot;
+      const g = ctx.createLinearGradient(sh.x,sh.y,sh.x+dx*tailLen,sh.y+dy*tailLen);
+      g.addColorStop(0,   `rgba(255,255,255,${sh.op})`);
+      g.addColorStop(.08, `rgba(${sh.tint},${sh.op*.95})`);
+      g.addColorStop(.35, `rgba(${sh.tint},${sh.op*.5})`);
+      g.addColorStop(.7,  `rgba(${sh.tint},${sh.op*.15})`);
+      g.addColorStop(1,   `rgba(${sh.tint},0)`);
+      ctx.save();
+      ctx.lineWidth = sh.width;
+      ctx.strokeStyle = g;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(sh.x, sh.y);
+      ctx.lineTo(sh.x + dx*tailLen, sh.y + dy*tailLen);
+      ctx.stroke();
+      // Bright inner core trail
+      if(sh.width > 1.2){
+        const g2 = ctx.createLinearGradient(sh.x,sh.y,sh.x+dx*tailLen*.3,sh.y+dy*tailLen*.3);
+        g2.addColorStop(0, `rgba(255,255,255,${sh.op*.9})`);
+        g2.addColorStop(1, `rgba(255,255,255,0)`);
+        ctx.lineWidth = sh.width*.3;
+        ctx.strokeStyle = g2;
+        ctx.beginPath();
+        ctx.moveTo(sh.x, sh.y);
+        ctx.lineTo(sh.x+dx*tailLen*.3, sh.y+dy*tailLen*.3);
+        ctx.stroke();
+      }
+      // Head glow -- larger for bigger meteors
+      const glowR = 3 + sh.width * 1.8;
+      const hg = ctx.createRadialGradient(sh.x,sh.y,0,sh.x,sh.y,glowR);
+      hg.addColorStop(0, `rgba(255,255,255,${sh.op})`);
+      hg.addColorStop(.25, `rgba(${sh.tint},${sh.op*.85})`);
+      hg.addColorStop(.7, `rgba(${sh.tint},${sh.op*.25})`);
+      hg.addColorStop(1, `rgba(${sh.tint},0)`);
+      ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(sh.x,sh.y,glowR,0,Math.PI*2); ctx.fill();
+      // Sparkle at head for largest meteors
+      if(sh.width > 2 && sh.op > .6){
+        ctx.globalAlpha = sh.op * .4;
+        ctx.strokeStyle = `rgba(${sh.tint},1)`;
+        ctx.lineWidth = .4;
+        for(let sp=0;sp<4;sp++){
+          const sa = sp*Math.PI*.5 + sh.life*.1;
+          const sl = glowR * 1.8;
+          ctx.beginPath();
+          ctx.moveTo(sh.x + Math.cos(sa)*glowR*.4, sh.y + Math.sin(sa)*glowR*.4);
+          ctx.lineTo(sh.x + Math.cos(sa)*sl, sh.y + Math.sin(sa)*sl);
+          ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+      }
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  function resize(){
+    W = c.width  = window.innerWidth;
+    H = c.height = window.innerHeight;
+    initStars();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+// -- HUD CLOCK --
+setInterval(()=>{
+  const el = document.getElementById('hud-time');
+  if(!el) return;
+  const d = new Date();
+  el.textContent = [d.getHours(),d.getMinutes(),d.getSeconds()].map(n=>n.toString().padStart(2,'0')).join(':');
+}, 1000);
+
+// ---- BUILD MENU ----
+const menuEl=document.getElementById('menu');
+const STEP=46, TOTAL=P.length;
+P.forEach((p,i)=>{
+  const div=document.createElement('div');
+  div.className='mi';
+  div.style.top='calc(50vh + '+(((i-(TOTAL-1)/2)*STEP))+'px)';
+  div.setAttribute('data-tip', p.name+' -- '+p.sec);
+  div.innerHTML=`<div class="mi-dot" style="--pc:${p.col}"></div>
+    <div class="mi-info"><h2>${p.name}</h2><h3>${p.sec}</h3></div>`;
+  div.addEventListener('click',()=>selectPlanet(i));
+  menuEl.appendChild(div);
+});
+
+// ---- THREE.JS PLANET RENDERER ----
+  // Mobile LOD - reduce quality on small screens
+  const isMobile = window.innerWidth < 768;
+  const SIZE = isMobile ? Math.min(450, Math.round(window.innerWidth * .75)) : Math.min(625, Math.round(window.innerWidth * .69));
+const VISIBLE='-'+Math.round(SIZE*.58)+'px';
+const HIDDEN='-'+Math.round(SIZE*1.3)+'px';
+// Uses Three.js r128 loaded from CDN
+// Each planet: sphere + procedural noise texture + normal map + atmosphere + rings where needed
+
+// Three.js loaded synchronously in <head> - just call buildPlanets
+// Queue any selectPlanet calls that happen before buildPlanets finishes
+// ---- MODULE-LEVEL THREE.JS STATE (accessible by selectPlanet) ----
+const renderers = [];
+const scenes = [];
+const cameras = [];
+const planets = [];
+const cloudMeshes = [];
+let activeRenderIdx = -1;
+let _pendingPlanet = -1;
+let _planetsReady = false;
+
+function setActiveRender(idx){
+  if(!_planetsReady){ _pendingPlanet = idx; return; }
+  activeRenderIdx = idx;
+  if(renderers[idx] && scenes[idx] && cameras[idx]){
+    renderers[idx].render(scenes[idx], cameras[idx]);
+  }
+}
+
+if(typeof THREE !== 'undefined'){
+  buildPlanets();
+} else {
+  // Fallback: poll until THREE loads (shouldn't happen with <head> script tag)
+  const _wait = setInterval(()=>{
+    if(typeof THREE !== 'undefined'){ clearInterval(_wait); buildPlanets(); }
+  }, 50);
+}
+
+function buildPlanets() {
+
+// High-quality value noise with smooth interpolation
+const PERM = new Uint8Array(512);
+(function(){
+  for(let i=0;i<256;i++) PERM[i]=i;
+  for(let i=255;i>0;i--){
+    const j=Math.floor((i+1)*Math.abs(Math.sin(i*127.1+311.7)*43758.5453))%(i+1);
+    [PERM[i],PERM[j]]=[PERM[j],PERM[i]];
+  }
+  for(let i=0;i<256;i++) PERM[256+i]=PERM[i];
+})();
+
+function fade(t){ return t*t*t*(t*(t*6-15)+10); }
+function lerp(a,b,t){ return a+(b-a)*t; }
+function grad(h,x,y){
+  const g=[[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]];
+  const v=g[h&7]; return v[0]*x+v[1]*y;
+}
+function noise2(x,y){
+  const ix=Math.floor(x)&255, iy=Math.floor(y)&255;
+  const fx=x-Math.floor(x), fy=y-Math.floor(y);
+  const u=fade(fx), v=fade(fy);
+  const aa=PERM[PERM[ix]+iy], ab=PERM[PERM[ix]+iy+1];
+  const ba=PERM[PERM[ix+1]+iy], bb=PERM[PERM[ix+1]+iy+1];
+  return lerp(
+    lerp(grad(aa,fx,fy), grad(ba,fx-1,fy), u),
+    lerp(grad(ab,fx,fy-1), grad(bb,fx-1,fy-1), u),
+    v
+  );
+}
+function fbm(x,y,oct){
+  let v=0,amp=0.5,freq=1;
+  for(let i=0;i<oct;i++){
+    v+=noise2(x*freq,y*freq)*amp;
+    amp*=0.5; freq*=2.0;
+  }
+  return v;
+}
+function fbmRidge(x,y,oct){
+  let v=0,amp=0.5,freq=1;
+  for(let i=0;i<oct;i++){
+    v+=(1-Math.abs(noise2(x*freq,y*freq)))*amp;
+    amp*=0.5; freq*=2.0;
+  }
+  return v;
+}
+
+// Generate texture via offscreen canvas
+function makeTexture(size, drawFn) {
+  const c = document.createElement('canvas');
+  c.width = size; c.height = size;
+  const ctx = c.getContext('2d');
+  const img = ctx.createImageData(size, size);
+  drawFn(img.data, size);
+  ctx.putImageData(img, 0, 0);
+  const tex = new THREE.CanvasTexture(c);
+  return tex;
+}
+
+// Per-pixel texture generators - these run at 512x512
+const T = 1024;
+
+function sunTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*4-2, ny=y/S*4-2;
+      const n=fbm(nx+1.8,ny+1.8,8)*0.5+0.5;
+      const n2=fbm(nx*2.2+5,ny*2.2+5,6)*0.5+0.5;
+      const cell=fbm(nx*3+n*2,ny*3+n2*2,4)*0.5+0.5;
+      // Granulation pattern
+      const gran=Math.pow(cell,0.6);
+      const r=Math.min(255,200+gran*55);
+      const g=Math.min(255,80+gran*120+n*60);
+      const b=Math.max(0,gran*20-20);
+      const i=(y*S+x)*4;
+      d[i]=r; d[i+1]=g; d[i+2]=b; d[i+3]=255;
+    }
+  });
+}
+
+function mercuryTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*6, ny=y/S*6;
+      const n=fbm(nx,ny,8)*0.5+0.5;
+      const n2=fbm(nx*2.3+3,ny*2.3+3,6)*0.5+0.5;
+      // Rocky grey-brown surface
+      const base=0.45+n*0.3;
+      const crater=Math.max(0,1-Math.abs(n2-0.5)*4);
+      const dark=base*(1-crater*0.4);
+      const r=Math.round(dark*180+n2*30);
+      const g=Math.round(dark*155+n2*20);
+      const b=Math.round(dark*130+n2*15);
+      const i=(y*S+x)*4;
+      d[i]=r; d[i+1]=g; d[i+2]=b; d[i+3]=255;
+    }
+  });
+}
+
+function venusTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*5, ny=y/S*3;
+      // Horizontal banding - thick atmosphere
+      const band=Math.sin(ny*Math.PI*8)*0.3;
+      const n=fbm(nx+band,ny*1.5,7)*0.5+0.5;
+      const n2=fbm(nx*3+2,ny*3+2,5)*0.5+0.5;
+      const swirl=fbm(nx+n*1.5,ny+n2*1.5,4)*0.5+0.5;
+      const r=Math.round(220+swirl*35-n*20);
+      const g=Math.round(170+swirl*40-n*30);
+      const b=Math.round(60+swirl*40-n*40);
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r); d[i+1]=Math.min(255,g); d[i+2]=Math.min(255,b); d[i+3]=255;
+    }
+  });
+}
+
+function earthTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const u=x/S, v=y/S;
+      const lon=(u-0.5)*6.2832, lat=(v-0.5)*3.1416;
+      const nx=Math.cos(lat)*Math.cos(lon);
+      const ny2=Math.sin(lat);
+      const nz=Math.cos(lat)*Math.sin(lon);
+      const cx=nx*1.6+0.3, cz=nz*1.6+0.5;
+      const cont=(fbm(cx,cz,8)+fbm(cx*2.2+4,cz*2.2+3,6)*0.4)*0.7+0.5;
+      const land=cont>0.52;
+      const dn=fbm(nx*5+1,nz*5+2,6)*0.5+0.5;
+      const dn2=fbm(nx*8+7,nz*8+6,5)*0.5+0.5;
+      const polarN=ny2>0.78?Math.pow((ny2-0.78)/0.22,1.5):0;
+      const polarS=ny2<-0.82?Math.pow((-ny2-0.82)/0.18,1.5):0;
+      const polar=Math.min(1,polarN+polarS);
+      let r,g,b;
+      if(polar>0.5){ const w=215+polar*40; r=w; g=w+3; b=w+15; }
+      else if(polar>0.1){
+        const t=polar/0.5;
+        r=lerp(land?80:20+dn*50,215,t)|0;
+        g=lerp(land?140:70+dn*80,218,t)|0;
+        b=lerp(land?60:160+dn*70,230,t)|0;
+      } else if(land){
+        const elev=fbmRidge(nx*4+3,nz*4+3,6);
+        if(elev>1.1){ r=170+dn2*40|0; g=165+dn2*35|0; b=155+dn2*30|0; }
+        else if(elev>0.85){ r=110+dn*55|0; g=92+dn*45|0; b=68+dn*30|0; }
+        else if(cont>0.64){ r=190+dn*45|0; g=165+dn*38|0; b=95+dn*28|0; }
+        else { r=48+dn*65|0; g=115+dn*78|0; b=28+dn*42|0; }
+      } else {
+        const depth=fbm(nx*2.5+8,nz*2.5+8,7)*0.5+0.5;
+        r=10+depth*38+dn2*12|0; g=42+depth*88+dn2*22|0; b=135+depth*85+dn2*18|0;
+      }
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,Math.max(0,r||0));
+      d[i+1]=Math.min(255,Math.max(0,g||0));
+      d[i+2]=Math.min(255,Math.max(0,b||0));
+      d[i+3]=255;
+    }
+  });
+}
+
+function marsTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*5, ny=y/S*5;
+      const n=fbm(nx,ny,9)*0.5+0.5;
+      const n2=fbm(nx*2+4,ny*2+4,7)*0.5+0.5;
+      const n3=fbm(nx*4+8,ny*4+8,5)*0.5+0.5;
+      // Rust red surface with variation
+      const base=0.5+n*0.3;
+      const r=Math.round(180+base*60+n3*15);
+      const g=Math.round(60+base*40+n2*20);
+      const b=Math.round(20+base*20+n3*10);
+      // Dark volcanic regions
+      const dark=n2<0.35?0.6:1.0;
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r*dark); d[i+1]=Math.min(255,g*dark); d[i+2]=Math.min(255,b*dark); d[i+3]=255;
+    }
+  });
+}
+
+function jupiterTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*8, ny=y/S*1;
+      // Dominant horizontal banding
+      const bandFreq=14;
+      const warp=fbm(nx*0.5,ny*8,4)*0.5;
+      const band=Math.sin((ny+warp*0.15)*Math.PI*bandFreq);
+      const n=fbm(nx+warp,ny*bandFreq*0.3+3,5)*0.5+0.5;
+      const n2=fbm(nx*2+5,ny*bandFreq*0.3+7,4)*0.5+0.5;
+      // Belt colors: dark ochre, bright cream, brown
+      const t=(band*0.5+0.5);
+      const r=Math.round(180+t*70+n*20);
+      const g=Math.round(130+t*60+n2*25);
+      const b=Math.round(60+t*40+n*15);
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r); d[i+1]=Math.min(255,g); d[i+2]=Math.min(255,b); d[i+3]=255;
+    }
+  });
+}
+
+function saturnTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*6, ny=y/S*1;
+      const warp=fbm(nx*0.4,ny*6,3)*0.3;
+      const band=Math.sin((ny+warp*0.1)*Math.PI*10);
+      const n=fbm(nx+warp*0.5,ny*8+2,5)*0.5+0.5;
+      const t=band*0.5+0.5;
+      const r=Math.round(210+t*40+n*10);
+      const g=Math.round(185+t*40+n*15);
+      const b=Math.round(120+t*40+n*20);
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r); d[i+1]=Math.min(255,g); d[i+2]=Math.min(255,b); d[i+3]=255;
+    }
+  });
+}
+
+function uranusTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*4, ny=y/S*4;
+      const n=fbm(nx,ny,6)*0.5+0.5;
+      const band=Math.sin(ny*Math.PI*6)*0.08;
+      const r=Math.round(140+n*40+band*20);
+      const g=Math.round(210+n*35+band*15);
+      const b=Math.round(220+n*30+band*10);
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r); d[i+1]=Math.min(255,g); d[i+2]=Math.min(255,b); d[i+3]=255;
+    }
+  });
+}
+
+function neptuneTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*5, ny=y/S*5;
+      const n=fbm(nx,ny,8)*0.5+0.5;
+      const n2=fbm(nx*2+3,ny*2+3,6)*0.5+0.5;
+      const band=Math.sin(ny*Math.PI*8)*0.12;
+      const storm=fbm(nx*4+1,ny*4+1,5)*0.5+0.5;
+      const r=Math.round(30+n*50+n2*20);
+      const g=Math.round(60+n*70+n2*30+band*20);
+      const b=Math.round(190+n*60+storm*30);
+      const i=(y*S+x)*4;
+      d[i]=Math.min(255,r); d[i+1]=Math.min(255,g); d[i+2]=Math.min(255,b); d[i+3]=255;
+    }
+  });
+}
+
+const TEX_FNS = [sunTex, mercuryTex, venusTex, earthTex, marsTex, jupiterTex, saturnTex, uranusTex, neptuneTex];
+
+// Emissive maps (sun glows, others dark)
+function makeEmissive(i) {
+  const c = document.createElement('canvas'); c.width=64; c.height=64;
+  const ctx = c.getContext('2d');
+  if(i===0){ // Sun - full emissive
+    const g=ctx.createRadialGradient(32,32,0,32,32,32);
+    g.addColorStop(0,'#ffee80'); g.addColorStop(0.6,'#ff8800'); g.addColorStop(1,'#cc4400');
+    ctx.fillStyle=g; ctx.fillRect(0,0,64,64);
+  } else {
+    ctx.fillStyle='#000'; ctx.fillRect(0,0,64,64);
+  }
+  return new THREE.CanvasTexture(c);
+}
+
+// Cloud layer for Earth
+function earthCloudTex() {
+  return makeTexture(512, (d,S) => {
+    for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+      const nx=x/S*5, ny=y/S*3;
+      const c1=fbm(nx+0.5,ny+0.5,7)*0.5+0.5;
+      const c2=fbm(nx*2+3,ny*2+3,5)*0.5+0.5;
+      const cloud=Math.pow(Math.max(0,c1*c2*2-0.5),1.5);
+      const a=Math.min(255,cloud*255*1.6);
+      const i=(y*S+x)*4;
+      d[i]=255; d[i+1]=255; d[i+2]=255; d[i+3]=a;
+    }
+  });
+}
+
+// ---- BUILD THREE.JS SCENES (one per planet) ----
+const stageEl = document.getElementById('stage');
+
+P.forEach((p, idx) => {
+  const slot = document.createElement('div');
+  slot.className = 'slot';
+  slot.id = 'slot' + idx;
+
+  // Canvas for Three.js
+  const cv = document.createElement('canvas');
+  cv.setAttribute('role', 'img');
+  cv.setAttribute('aria-label', `Interactive 3D planet: ${p.name}`);
+  cv.style.cssText = `width:${SIZE}px;height:${SIZE}px;border-radius:50%;position:absolute;` +
+    `left:30%;margin-left:-${SIZE/2}px;bottom:${HIDDEN};` +
+    `transition:bottom 2.4s cubic-bezier(.33,0,0,1),opacity 1.6s ease;opacity:0;`;
+  cv.className = 'pball';
+
+  // Glow wrapper
+  const glow = document.createElement('div');
+  glow.className = 'pball-glow';
+  glow.style.cssText = `width:${SIZE}px;height:${SIZE}px;border-radius:50%;position:absolute;` +
+    `left:30%;margin-left:-${SIZE/2}px;bottom:${HIDDEN};pointer-events:none;` +
+    `transition:bottom 2.4s cubic-bezier(.33,0,0,1),opacity 1.6s ease;opacity:0;` +
+    `box-shadow:0 0 120px ${p.col}88,0 0 220px ${p.col}44,0 0 380px ${p.col}18;`;
+
+  // Specular shine overlay
+  const shine = document.createElement('div');
+  shine.className = 'pball-shine';
+  shine.style.cssText = `width:${SIZE}px;height:${SIZE}px;` +
+    `left:30%;margin-left:-${SIZE/2}px;bottom:${HIDDEN};` +
+    `transition:bottom 2.4s cubic-bezier(.33,0,0,1),opacity 1.6s ease;opacity:0;`;
+
+  slot.appendChild(glow);
+  slot.appendChild(cv);
+  slot.appendChild(shine);
+  stageEl.appendChild(slot);
+
+  // Three.js setup
+  const renderer = new THREE.WebGLRenderer({canvas: cv, antialias: true, alpha: true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(SIZE, SIZE, false); // false = don't override CSS
+  renderer.setClearColor(0x000000, 0);
+  renderers.push(renderer);
+
+  const scene = new THREE.Scene();
+  scenes.push(scene);
+
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  camera.position.set(0, 0, 3.2);
+  cameras.push(camera);
+
+  // Lighting - key light from top-left
+  const ambient = new THREE.AmbientLight(0x112244, idx===0 ? 3 : 0.35);
+  scene.add(ambient);
+
+  const keyLight = new THREE.DirectionalLight(0xffeedd, idx===0 ? 0 : 2.8);
+  keyLight.position.set(-2, 1.5, 2);
+  scene.add(keyLight);
+
+  const fillLight = new THREE.DirectionalLight(0x224488, 0.4);
+  fillLight.position.set(2, -1, 1);
+  scene.add(fillLight);
+
+  if(idx===0) { // Sun: add point light at center
+    const sunLight = new THREE.PointLight(0xffcc44, 4, 20);
+    sunLight.position.set(0,0,0);
+    scene.add(sunLight);
+  }
+
+  // Planet sphere
+  const geo = new THREE.SphereGeometry(1, 96, 96);
+  const tex = TEX_FNS[idx]();
+  tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+
+  let mat;
+  if(idx === 0) { // Sun - emissive
+    mat = new THREE.MeshStandardMaterial({
+      map: tex,
+      emissiveMap: tex,
+      emissive: new THREE.Color(0xff6600),
+      emissiveIntensity: 0.9,
+      roughness: 1, metalness: 0
+    });
+  } else {
+    mat = new THREE.MeshStandardMaterial({
+      map: tex,
+      roughness: idx===1 ? 0.95 : (idx===6 ? 0.7 : 0.82),
+      metalness: idx===1 ? 0.05 : 0.01,
+    });
+  }
+
+  const mesh = new THREE.Mesh(geo, mat);
+  // Axial tilts
+  const tilts = [0, 0.03, 0.05, 0.41, 0.44, 0.05, 0.47, 1.71, 0.49];
+  mesh.rotation.z = tilts[idx] || 0;
+  scene.add(mesh);
+  planets.push(mesh);
+
+  // Cloud layer for Earth
+  if(idx === 3) {
+    const cloudGeo = new THREE.SphereGeometry(1.008, 64, 64);
+    const cloudTex = earthCloudTex();
+    const cloudMat = new THREE.MeshStandardMaterial({
+      map: cloudTex, alphaMap: cloudTex,
+      transparent: true, opacity: 0.85,
+      roughness: 1, metalness: 0
+    });
+    const cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
+    scene.add(cloudMesh);
+    cloudMeshes[idx] = cloudMesh;
+  }
+
+  // Saturn rings
+  if(idx === 6) {
+    const ringTex = makeTexture(512, (d, S) => {
+      for(let y=0;y<S;y++) for(let x=0;x<S;x++) {
+        // Rings are horizontal - x = radial position
+        const t = x / S; // 0=inner, 1=outer
+        const n = fbm(t*30, y/S*2, 3)*0.5+0.5;
+        // Cassini division at t~0.56
+        const cassini = Math.abs(t-0.56)<0.03 ? 0 : 1;
+        const density = cassini * Math.pow(Math.sin(t*Math.PI), 0.5) * (0.6+n*0.4);
+        const bright = 180+n*60;
+        const r=bright; const g=bright*0.88; const b=bright*0.65;
+        const a = density * 200;
+        const i=(y*S+x)*4;
+        d[i]=r; d[i+1]=g; d[i+2]=b; d[i+3]=a;
+      }
+    });
+    ringTex.wrapS = ringTex.wrapT = THREE.RepeatWrapping;
+    const ringGeo = new THREE.RingGeometry(1.25, 2.2, 128);
+    // Fix ring UVs to map radially
+    const pos = ringGeo.attributes.position;
+    const uv = ringGeo.attributes.uv;
+    for(let i=0;i<pos.count;i++){
+      const x=pos.getX(i), y=pos.getY(i);
+      const r=Math.sqrt(x*x+y*y);
+      uv.setXY(i, (r-1.25)/(2.2-1.25), 0.5);
+    }
+    uv.needsUpdate = true;
+    const ringMat = new THREE.MeshBasicMaterial({
+      map: ringTex, side: THREE.DoubleSide, transparent: true, depthWrite: false
+    });
+    const ring = new THREE.Mesh(ringGeo, ringMat);
+    ring.rotation.x = Math.PI * 0.44;
+    scene.add(ring);
+  }
+
+  // Atmosphere glow (all except sun and mercury)
+  if(idx !== 0 && idx !== 1) {
+    const atmGeo = new THREE.SphereGeometry(1.06, 32, 32);
+    const atmColors = [0,0,0xa06010,0x1040a0,0xb03010,0xd07020,0xd0a030,0x40b0c0,0x2040c0];
+    const atmMat = new THREE.MeshBasicMaterial({
+      color: atmColors[idx] || 0x204080,
+      transparent: true, opacity: 0.08,
+      side: THREE.BackSide, depthWrite: false
+    });
+    scene.add(new THREE.Mesh(atmGeo, atmMat));
+  }
+
+  // Sun corona glow
+  if(idx === 0) {
+    const coronaGeo = new THREE.SphereGeometry(1.12, 32, 32);
+    const coronaMat = new THREE.MeshBasicMaterial({
+      color: 0xff8800, transparent: true, opacity: 0.12,
+      side: THREE.BackSide, depthWrite: false
+    });
+    scene.add(new THREE.Mesh(coronaGeo, coronaMat));
+  }
+});
+
+// ---- ANIMATION LOOP ----
+let animRunning = true;
+const clock = new THREE.Clock();
+
+
+function animate() {
+  if(!animRunning) return;
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+  const i = activeRenderIdx;
+  if(i < 0 || !renderers[i]) return;
+  const speeds = [0.003, 0.006, 0.004, 0.004, 0.0045, 0.0025, 0.002, 0.0015, 0.0012];
+  planets[i].rotation.y = t * speeds[i];
+  if(cloudMeshes[i]) cloudMeshes[i].rotation.y = t * 0.005;
+  renderers[i].render(scenes[i], cameras[i]);
+}
+animate();
+
+_planetsReady = true;
+if(_pendingPlanet >= 0){ setActiveRender(_pendingPlanet); }
+} // end buildPlanets()
+
+
+// ---- SELECT PLANET + ALL INTERACTIVITY ----
+let cur = -1;
+
+// -- Build scroll-nav dots --
+(function buildScrollNav(){
+  const dotsWrap = document.getElementById('snav-dots');
+  if(!dotsWrap) return;
+  P.forEach((p,i)=>{
+    const d = document.createElement('div');
+    d.className = 'snav-dot';
+    d.title = p.name;
+    d.style.setProperty('--pc', p.col);
+    d.addEventListener('click', ()=>selectPlanet(i));
+    dotsWrap.appendChild(d);
+  });
+  // Up/down buttons
+  const up = document.getElementById('snav-up');
+  const dn = document.getElementById('snav-dn');
+  if(up) up.addEventListener('click', ()=>selectPlanet(Math.max(0, cur-1)));
+  if(dn) dn.addEventListener('click', ()=>selectPlanet(Math.min(P.length-1, cur+1)));
+})();
+
+function selectPlanet(idx){
+  if(idx < 0 || idx >= P.length) return;
+  cur = idx;
+  const p = P[idx];
+
+  // Render
+  if(typeof setActiveRender === 'function') setActiveRender(idx);
+
+  // Slots
+  document.querySelectorAll('.slot').forEach((s,i)=>{
+    s.className = 'slot';
+    const balls = s.querySelectorAll('.pball,.pball-glow,.pball-shine');
+    if(i === idx){
+      s.classList.add('active');
+      s.style.setProperty('--pc', p.col);
+      // Make planet clickable -- open overlay on click
+      const cv = s.querySelector('.pball');
+      if(cv){
+        cv.style.cursor = 'pointer';
+        cv.onclick = ()=>openOverlay(idx);
+      }
+      balls.forEach(b=>{ b.style.bottom=VISIBLE; b.style.opacity='1'; });
+    } else {
+      balls.forEach(b=>{ b.style.bottom=HIDDEN; b.style.opacity='0'; });
+      const cv = s.querySelector('.pball');
+      if(cv){ cv.onclick = null; cv.style.cursor='default'; }
+    }
+  });
+
+  // Menu
+  document.querySelectorAll('.mi').forEach((m,i)=>{
+    m.classList.toggle('on', i===idx);
+    m.style.setProperty('--pc', P[i].col);
+  });
+
+  // Scroll-nav dots
+  document.querySelectorAll('.snav-dot').forEach((d,i)=>{
+    d.classList.toggle('on', i===idx);
+    if(i===idx) d.style.background = p.col;
+    else d.style.background = '';
+  });
+  // Show scroll nav after first selection
+  const sn = document.getElementById('scroll-nav');
+  if(sn) sn.classList.add('show');
+
+  // Description panel
+  const pd = document.getElementById('pdesc');
+  pd.classList.remove('show');
+  setTimeout(()=>{
+    document.getElementById('pd-eye').textContent = p.name + ' -- ' + p.sec;
+    document.getElementById('pd-eye').style.color = p.col;
+    document.getElementById('pd-name').textContent = p.panel.title;
+    document.getElementById('pd-blurb').textContent = p.blurb;
+    const btn = document.getElementById('pd-btn');
+    btn.style.color = p.col;
+    btn.style.borderColor = p.col;
+    btn.onclick = ()=>openOverlay(idx);
+    pd.classList.add('show');
+  }, 1800);
+
+  document.getElementById('hint').style.opacity = '0';
+}
+
+// -- Keyboard navigation --
+document.addEventListener('keydown', e=>{
+  if(document.getElementById('overlay').classList.contains('open')) return;
+  if(e.key === 'ArrowDown' || e.key === 'ArrowRight') selectPlanet(Math.min(P.length-1, cur+1));
+  if(e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  selectPlanet(Math.max(0, cur-1));
+  if(e.key === 'Enter' && cur >= 0) openOverlay(cur);
+  if(e.key === 'Escape') closeOverlay();
+});
+
+// -- Mouse wheel navigation --
+let _wheelLock = false;
+document.addEventListener('wheel', e=>{
+  if(document.getElementById('overlay').classList.contains('open')) return;
+  if(_wheelLock) return;
+  _wheelLock = true;
+  setTimeout(()=>_wheelLock=false, 900);
+  if(e.deltaY > 0) selectPlanet(Math.min(P.length-1, cur+1));
+  else             selectPlanet(Math.max(0, cur-1));
+}, {passive:true});
+
+// -- Touch swipe navigation --
+let _tx0 = 0, _ty0 = 0;
+document.addEventListener('touchstart', e=>{
+  _tx0 = e.touches[0].clientX;
+  _ty0 = e.touches[0].clientY;
+}, {passive:true});
+document.addEventListener('touchend', e=>{
+  if(document.getElementById('overlay').classList.contains('open')) return;
+  const dx = e.changedTouches[0].clientX - _tx0;
+  const dy = e.changedTouches[0].clientY - _ty0;
+  if(Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 40){
+    if(dy < 0) selectPlanet(Math.min(P.length-1, cur+1));
+    else       selectPlanet(Math.max(0, cur-1));
+  }
+}, {passive:true});
+
+// openPanel/closePanel replaced by openOverlay/closeOverlay in panel_system.js
+
+// ---- LOADING SCREEN ----
+(function initLoadingScreen(){
+
+  // Soft nebula canvas
+  const cv = document.getElementById('intro-canvas');
+  const ctx = cv.getContext('2d');
+  let W, H;
+  function resize(){ W=cv.width=window.innerWidth; H=cv.height=window.innerHeight; }
+  resize(); window.addEventListener('resize',resize);
+
+  // 6 slow drifting glow orbs
+  const orbs = [
+    {x:.15,y:.3,vx:.00012,vy:.00008,r:.32,h:230},
+    {x:.8,y:.2,vx:-.0001,vy:.00012,r:.28,h:255},
+    {x:.5,y:.7,vx:.00008,vy:-.0001,r:.35,h:220},
+    {x:.25,y:.65,vx:.00015,vy:.00006,r:.22,h:270},
+    {x:.72,y:.55,vx:-.00009,vy:-.00014,r:.25,h:240},
+    {x:.45,y:.15,vx:.00011,vy:.00009,r:.3,h:210},
+  ];
+  // Stars
+  const stars = Array.from({length:90},()=>({
+    x:Math.random(), y:Math.random()*.75,
+    r:.3+Math.random()*.7, op:.1+Math.random()*.5,
+    tw:Math.random()*Math.PI*2
+  }));
+
+  let frame=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Deep dark base
+    ctx.fillStyle='#060812'; ctx.fillRect(0,0,W,H);
+    // Orbs
+    orbs.forEach(o=>{
+      o.x+=o.vx; o.y+=o.vy;
+      if(o.x<-.3)o.x=1.3; if(o.x>1.3)o.x=-.3;
+      if(o.y<-.3)o.y=1.3; if(o.y>1.3)o.y=-.3;
+      const radius = Math.min(W,H)*o.r;
+      const g=ctx.createRadialGradient(o.x*W,o.y*H,0,o.x*W,o.y*H,radius);
+      const pulse=.035+Math.sin(frame*.005+o.x*8)*.012;
+      g.addColorStop(0,`hsla(${o.h},55%,65%,${pulse})`);
+      g.addColorStop(.5,`hsla(${o.h},55%,65%,${pulse*.4})`);
+      g.addColorStop(1,`hsla(${o.h},55%,65%,0)`);
+      ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    });
+    // Stars twinkle
+    stars.forEach(s=>{
+      s.tw+=.009;
+      const op=s.op*.5+Math.sin(s.tw)*s.op*.5;
+      ctx.beginPath(); ctx.arc(s.x*W,s.y*H*0.8,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(210,220,255,${op})`; ctx.fill();
+    });
+    frame++;
+    if(document.getElementById('intro')) requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Name letter-by-letter
+  const CHARS=[{t:'J',em:1},{t:'A',em:1},{t:'I',em:1},{t:' '},{t:'N'},{t:'A'},{t:'R'},{t:'U'},{t:'L'},{t:'A'}];
+  const nameEl=document.getElementById('i-name');
+  CHARS.forEach(c=>{
+    const sp=document.createElement('span'); sp.className='i-name-ch';
+    if(c.em){const em=document.createElement('em');em.textContent=c.t;sp.appendChild(em);}
+    else sp.textContent=c.t;
+    nameEl.appendChild(sp);
+  });
+
+  // Reveal sequence
+  setTimeout(()=>document.getElementById('i-greeting').classList.add('in'), 300);
+  setTimeout(()=>{
+    nameEl.querySelectorAll('.i-name-ch').forEach((ch,i)=>
+      setTimeout(()=>ch.classList.add('in'), i*85));
+  }, 750);
+  setTimeout(()=>document.getElementById('i-rule').classList.add('in'), 750+CHARS.length*85+250);
+
+  // Just 8 space-themed keywords -- short and punchy
+  const KW = [
+    'SQL', 'Python', 'Power BI',
+    'NIKA', 'Gemini AI',
+    'Google Top 250', 'NIAT 2025',
+    'Open to Work',
+  ];
+  const kwWrap=document.getElementById('i-keywords');
+  KW.forEach(k=>{
+    const s=document.createElement('span'); s.className='i-kw'; s.textContent=k;
+    kwWrap.appendChild(s);
+  });
+  setTimeout(()=>{
+    kwWrap.classList.add('in');
+    kwWrap.querySelectorAll('.i-kw').forEach((el,i)=>
+      setTimeout(()=>el.classList.add('in'), i*80));
+  }, 750+CHARS.length*85+700);
+
+  // Typed role -- space-mission style phrases
+  const ROLES=[
+    'Data Analyst', 'Exploring the Universe of Data',
+    'Business Analyst', 'Turning Numbers into Decisions',
+    'BBA Analytics -- SRM University', 'Delhi NCR -- Degree completion June 2026',
+  ];
+  let ri=0,ci=0,del=false;
+  const roleEl=document.getElementById('irole');
+  function typeRole(){
+    const w=ROLES[ri];
+    if(!del&&ci<w.length){roleEl.textContent=w.slice(0,++ci);setTimeout(typeRole,65);}
+    else if(!del){setTimeout(()=>{del=true;typeRole();},2000);}
+    else if(ci>0){roleEl.textContent=w.slice(0,--ci);setTimeout(typeRole,35);}
+    else{del=false;ri=(ri+1)%ROLES.length;setTimeout(typeRole,250);}
+  }
+  setTimeout(typeRole, 1200);
+
+  // 4 space-mission progress messages
+  const MSGS=['charting the stars','aligning the orbits','mapping your journey','ready for launch'];
+  let pct=0;
+  setTimeout(()=>document.getElementById('i-progress-wrap').classList.add('in'), 1800);
+  const lint=setInterval(()=>{
+    pct+=1.5+Math.random()*2.2;
+    const c=Math.min(pct,96);
+    const b=document.getElementById('ibar');
+    const m=document.getElementById('imsg');
+    if(b)b.style.width=c+'%';
+    if(m)m.textContent=MSGS[Math.min(Math.floor(c/26),3)];
+    if(pct>=96){
+      clearInterval(lint);
+      if(b)b.style.width='100%';
+      if(m)m.textContent='ready for launch';
+      setTimeout(()=>{
+        const intro=document.getElementById('intro');
+        if(intro)intro.classList.add('out');
+        setTimeout(()=>{if(intro)intro.remove();selectPlanet(0);},1400);
+      },900);
+    }
+  },55);
+
+})();
+
+// ============================================================
+// 3D SCENE BUILDERS -- one per planet section
+// ============================================================
+let ovRenderer=null, ovScene=null, ovCamera=null, ovAF=null, ovAnimFn=null, ovClock2=null;
+let ovCurrentIdx = -1;
+
+function initOverlayRenderer(){
+  if(ovRenderer) return;
+  const cv = document.getElementById('ov-canvas');
+  ovRenderer = new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  ovRenderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  ovRenderer.setClearColor(0x000000,0);
+  ovCamera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,.1,1000);
+  ovCamera.position.set(0,0,5);
+  window.addEventListener('resize',()=>{
+    ovRenderer.setSize(window.innerWidth,window.innerHeight);
+    ovCamera.aspect=window.innerWidth/window.innerHeight;
+    ovCamera.updateProjectionMatrix();
+  });
+  ovRenderer.setSize(window.innerWidth,window.innerHeight);
+}
+
+function stopOverlayAnim(){ if(ovAF){cancelAnimationFrame(ovAF);ovAF=null;} }
+
+// Helper: create text sprite (used for floating labels)
+function makeSprite(text,col){
+  const c=document.createElement('canvas'); c.width=256;c.height=64;
+  const ctx=c.getContext('2d');
+  ctx.font='bold 22px monospace'; ctx.fillStyle=col||'#fff';
+  ctx.textAlign='center'; ctx.fillText(text,128,40);
+  const tex=new THREE.CanvasTexture(c);
+  const mat=new THREE.SpriteMaterial({map:tex,transparent:true});
+  const sp=new THREE.Sprite(mat); sp.scale.set(2,.5,1); return sp;
+}
+
+// ---- SCENE 0: About Me -- floating particles forming a face silhouette / DNA helix ----
+// ============================================================
+// REBUILT SCENE SYSTEM -- interactive, aesthetic, responsive
+// ============================================================
+
+// -- Shared helpers ------------------------------------------
+function makeCanvas(w,h,drawFn){
+  const c=document.createElement('canvas'); c.width=w; c.height=h;
+  drawFn(c.getContext('2d'),w,h); return c;
+}
+function canvasTex(w,h,drawFn){
+  return new THREE.CanvasTexture(makeCanvas(w,h,drawFn));
+}
+function addStarField(scene,n,spread){
+  const g=new THREE.BufferGeometry(),p=new Float32Array(n*3);
+  for(let i=0;i<n;i++){p[i*3]=(Math.random()-.5)*spread;p[i*3+1]=(Math.random()-.5)*spread*.6;p[i*3+2]=-spread*.3-Math.random()*spread*.5;}
+  g.setAttribute('position',new THREE.BufferAttribute(p,3));
+  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xffffff,size:.05,transparent:true,opacity:.55})));
+}
+function addParticles(scene,n,spread,col,size){
+  const g=new THREE.BufferGeometry(),p=new Float32Array(n*3);
+  for(let i=0;i<n;i++){p[i*3]=(Math.random()-.5)*spread;p[i*3+1]=(Math.random()-.5)*spread*.7;p[i*3+2]=(Math.random()-.5)*spread*.4;}
+  g.setAttribute('position',new THREE.BufferAttribute(p,3));
+  scene.add(new THREE.Points(g,new THREE.PointsMaterial({color:new THREE.Color(col),size:size||.04,transparent:true,opacity:.45})));
+  return g;
+}
+
+// Mouse-parallax camera helper
+let _mx=0,_my=0;
+function initMouseParallax(){
+  const ov=document.getElementById('ov-canvas');
+  if(ov){ ov.onmousemove=e=>{ _mx=(e.clientX/window.innerWidth-.5)*2; _my=-(e.clientY/window.innerHeight-.5)*2; }; ov.onmouseleave=()=>{_mx=0;_my=0;}; }
+}
+function parallaxCam(t,baseX,baseY,baseZ,str){
+  const tx=baseX+_mx*(str||.3); const ty=baseY+_my*(str||.2);
+  ovCamera.position.x+=(tx-ovCamera.position.x)*.04;
+  ovCamera.position.y+=(ty-ovCamera.position.y)*.04;
+  ovCamera.position.z=baseZ;
+  ovCamera.lookAt(0,0,0);
+}
+
+// -- SCENE 0: About Me -- glowing particle portrait + floating tags --
+function buildScene_AboutMe(scene,col){
+  initMouseParallax();
+  addStarField(scene,400,20);
+
+  // Central glowing orb -- "the person"
+  const coreG=new THREE.SphereGeometry(.9,64,64);
+  const coreTex=canvasTex(256,256,(ctx,w,h)=>{
+    const g=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);
+    g.addColorStop(0,'rgba(255,255,255,.95)');
+    g.addColorStop(.3,col+'ee');
+    g.addColorStop(.7,col+'55');
+    g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  });
+  const coreMat=new THREE.MeshStandardMaterial({map:coreTex,emissive:new THREE.Color(col),emissiveIntensity:.8,roughness:.1,metalness:.2,transparent:true,opacity:.9});
+  const core=new THREE.Mesh(coreG,coreMat); scene.add(core);
+
+  // Outer atmosphere ring
+  const atmG=new THREE.SphereGeometry(1.15,32,32);
+  const atmM=new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.07,side:THREE.BackSide});
+  scene.add(new THREE.Mesh(atmG,atmM));
+
+  // Rings of orbiting data particles
+  const RING_N=3; const ringObjs=[];
+  for(let r=0;r<RING_N;r++){
+    const cnt = window.innerWidth < 768 ? Math.floor((40 + r * 20) * 0.7) : 40 + r * 20;
+    const radius=1.6+r*.7;
+    const pts=[]; const offsets=[];
+    for(let i=0;i<cnt;i++){
+      const a=i/cnt*Math.PI*2;
+      pts.push(Math.cos(a)*radius,Math.sin(a*.3+r)*.2,Math.sin(a)*radius);
+      offsets.push(a);
+    }
+    const g=new THREE.BufferGeometry();
+    g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(pts),3));
+    const sizes=new Float32Array(cnt).fill(0);
+    g.setAttribute('size',new THREE.BufferAttribute(sizes,1));
+    const mat=new THREE.PointsMaterial({color:new THREE.Color(col),size:.06,transparent:true,opacity:.6});
+    const pts3d=new THREE.Points(g,mat); scene.add(pts3d);
+    ringObjs.push({pts3d,g,cnt,radius,offsets,r});
+  }
+
+  // Floating stat cards
+  const stats=[
+    {t:'20+',sub:'NIKA Users',col:col},
+    {t:'Top 250',sub:'Google Ambassador',col:'#4285f4'},
+    {t:'NIAT 2025',sub:'OpenAI x NxtWave',col:'#ff9500'},
+    {t:'CGPA 7.91',sub:'SRM University',col:'#34a853'},
+  ];
+  const cardMeshes=[];
+  stats.forEach((s,i)=>{
+    const angle=i/stats.length*Math.PI*2+Math.PI*.25;
+    const dist=3.0;
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(1.55,.8),new THREE.MeshBasicMaterial({
+      map:canvasTex(310,160,(ctx,w,h)=>{
+        ctx.fillStyle='rgba(6,10,24,.92)'; ctx.roundRect(0,0,w,h,12); ctx.fill();
+        ctx.strokeStyle=s.col+'bb'; ctx.lineWidth=1.5; ctx.roundRect(1,1,w-2,h-2,11); ctx.stroke();
+        ctx.fillStyle=s.col+'22'; ctx.roundRect(0,0,w,44,12); ctx.fill();
+        ctx.font='bold 34px Orbitron,monospace'; ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.fillText(s.t,w/2,38);
+        ctx.font='12px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.6)'; ctx.fillText(s.sub,w/2,72);
+      }),side:THREE.DoubleSide,transparent:true
+    }));
+    mesh.position.set(Math.cos(angle)*dist,(i%2===0?.6:-.6),Math.sin(angle)*dist);
+    mesh.lookAt(0,0,0);
+    scene.add(mesh);
+    cardMeshes.push({mesh,angle,dist,i});
+  });
+
+  scene.add(new THREE.AmbientLight(0x112244,.8));
+  const pl=new THREE.PointLight(new THREE.Color(col),5,12); pl.position.set(0,0,2); scene.add(pl);
+  const pl2=new THREE.PointLight(0xffffff,1.5,20); pl2.position.set(-3,3,4); scene.add(pl2);
+
+  return function(t){
+    core.rotation.y=t*.15; core.material.emissiveIntensity=.6+Math.sin(t*1.5)*.25;
+    ringObjs.forEach(ro=>{
+      const pos=ro.g.attributes.position.array;
+      for(let i=0;i<ro.cnt;i++){
+        const a=ro.offsets[i]+t*(.18+ro.r*.08);
+        pos[i*3]=Math.cos(a)*ro.radius; pos[i*3+1]=Math.sin(a*.5+ro.r+t*.1)*.35; pos[i*3+2]=Math.sin(a)*ro.radius;
+      }
+      ro.g.attributes.position.needsUpdate=true;
+    });
+    cardMeshes.forEach((c,i)=>{
+      c.mesh.position.y=(i%2===0?.6:-.6)+Math.sin(t*.5+i)*.1;
+      c.mesh.lookAt(0,0,0);
+    });
+    pl.intensity=4+Math.sin(t*2)*1;
+    parallaxCam(t,-1,0,5.5,.5);
+  };
+}
+
+// -- SCENE 1: Skills -- glowing 3D bar chart with floor reflection --
+function buildScene_Skills(scene,col){
+  initMouseParallax();
+  addStarField(scene,300,18);
+
+  const skills=[
+    {n:'SQL',v:.85},{n:'Power BI',v:.80},{n:'Excel',v:.82},
+    {n:'Python',v:.78},{n:'DAX',v:.72},{n:'Pandas',v:.75},
+    {n:'CRM',v:.75},{n:'Git',v:.68},{n:'Flask',v:.62},{n:'React',v:.55},
+  ];
+  const W=skills.length, gap=.9, startX=-(W-1)*gap*.5;
+  const bars=[]; const barGeos=[];
+
+  skills.forEach((sk,i)=>{
+    const h=sk.v*3.5; const x=startX+i*gap;
+    // Bar with gradient texture
+    const tex=canvasTex(32,256,(ctx,w,hh)=>{
+      const g=ctx.createLinearGradient(0,0,0,hh);
+      g.addColorStop(0,'rgba(255,255,255,.9)'); g.addColorStop(.3,col+'ff'); g.addColorStop(1,col+'44');
+      ctx.fillStyle=g; ctx.fillRect(0,0,w,hh);
+    });
+    const geo=new THREE.BoxGeometry(.5,h,.5);
+    const mat=new THREE.MeshStandardMaterial({map:tex,emissive:new THREE.Color(col),emissiveIntensity:.3,roughness:.3,metalness:.4});
+    const bar=new THREE.Mesh(geo,mat);
+    bar.position.set(x,-1.8+h/2,0); bar.scale.y=0; scene.add(bar);
+
+    // Top cap glow
+    const capG=new THREE.CylinderGeometry(.32,.32,.08,24);
+    const capM=new THREE.MeshStandardMaterial({color:new THREE.Color(col),emissive:new THREE.Color(col),emissiveIntensity:1,roughness:0,metalness:.5});
+    const cap=new THREE.Mesh(capG,capM); cap.position.set(x,-1.8+h+.04,0); cap.scale.y=0; scene.add(cap);
+
+    // Label below
+    const lbl=new THREE.Mesh(new THREE.PlaneGeometry(.8,.22),new THREE.MeshBasicMaterial({
+      map:canvasTex(160,44,(ctx,w,h)=>{ ctx.font='bold 18px Share Tech Mono,monospace'; ctx.fillStyle=col; ctx.textAlign='center'; ctx.fillText(sk.n,w/2,30); }),
+      transparent:true,side:THREE.DoubleSide
+    }));
+    lbl.position.set(x,-2.2,0); scene.add(lbl);
+
+    // Pct label above
+    const pct=new THREE.Mesh(new THREE.PlaneGeometry(.5,.2),new THREE.MeshBasicMaterial({
+      map:canvasTex(100,40,(ctx,w,h)=>{ ctx.font='bold 22px Orbitron,monospace'; ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.fillText(Math.round(sk.v*100)+'%',w/2,28); }),
+      transparent:true,side:THREE.DoubleSide
+    }));
+    pct.position.set(x,-1.8+h+.35,0); scene.add(pct);
+    bars.push({bar,cap,pct,target:1,h,x,baseY:-1.8+h/2});
+    barGeos.push(geo);
+  });
+
+  // Floor grid
+  const grid=new THREE.GridHelper(12,12,new THREE.Color(col).multiplyScalar(.13),new THREE.Color(col).multiplyScalar(.07));
+  grid.position.y=-2.3; scene.add(grid);
+
+  // Floor reflection -- mirror plane
+  const floorGeo=new THREE.PlaneGeometry(12,8);
+  const floorMat=new THREE.MeshStandardMaterial({color:0x050510,roughness:.05,metalness:.9,transparent:true,opacity:.35});
+  const floor=new THREE.Mesh(floorGeo,floorMat); floor.rotation.x=-Math.PI/2; floor.position.y=-2.31; scene.add(floor);
+
+  scene.add(new THREE.AmbientLight(0x112244,.6));
+  const dl=new THREE.DirectionalLight(0xffffff,1.2); dl.position.set(4,6,4); scene.add(dl);
+  const pl=new THREE.PointLight(new THREE.Color(col),4,20); pl.position.set(0,3,3); scene.add(pl);
+  const pl2=new THREE.PointLight(0x4488ff,1.5,15); pl2.position.set(-4,2,2); scene.add(pl2);
+
+  return function(t){
+    bars.forEach((b,i)=>{
+      const grow=Math.min(1,Math.max(0,(t-.3-i*.04)*1.2));
+      b.bar.scale.y=grow; b.cap.scale.y=grow;
+      b.bar.position.y=-1.8+b.h*grow/2;
+      b.cap.position.y=-1.8+b.h*grow+.04;
+      b.pct.position.y=-1.8+b.h*grow+.35;
+      b.bar.material.emissiveIntensity=.2+Math.sin(t*1.5+i*.4)*.15;
+    });
+    pl.intensity=3+Math.sin(t*2)*.8;
+    parallaxCam(t,0,1,6,.4);
+  };
+}
+
+// -- SCENE 2: Projects -- 3 immersive floating project screens --
+function buildScene_Projects(scene,col){
+  initMouseParallax();
+  addStarField(scene,350,22);
+  addParticles(scene,200,14,col,.03);
+
+  const projects=[
+    {name:'NIKA AI',tag:'Gemini AI + Flask + React',stat:'20+ live users',url:'nika-xi.vercel.app',col:col,angle:-.55,y:.3},
+    {name:'Blinkit',tag:'Power BI + DAX + Star Schema',stat:'KPI Dashboard',col:'#ff6b35',angle:0,y:-.2},
+    {name:'Netflix EDA',tag:'Python + Pandas + Seaborn',stat:'5,000+ records',col:'#e50914',angle:.55,y:.2},
+  ];
+
+  const meshes=[];
+  projects.forEach((pr,i)=>{
+    const W=480,H=300;
+    const tex=canvasTex(W,H,(ctx,w,h)=>{
+      // Dark glass background
+      const bg=ctx.createLinearGradient(0,0,w,h);
+      bg.addColorStop(0,'rgba(6,9,22,.97)'); bg.addColorStop(1,'rgba(10,14,32,.97)');
+      ctx.fillStyle=bg; ctx.roundRect(0,0,w,h,18); ctx.fill();
+      // Top colour band
+      ctx.fillStyle=pr.col+'28'; ctx.roundRect(0,0,w,60,18); ctx.fill();
+      // Left accent bar
+      ctx.fillStyle=pr.col; ctx.fillRect(0,0,4,h);
+      // Title
+      ctx.font='bold 30px Orbitron,monospace'; ctx.fillStyle='#fff';
+      ctx.textAlign='left'; ctx.fillText(pr.name,22,44);
+      // Tag line
+      ctx.font='15px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.65)';
+      ctx.fillText(pr.tag,22,80);
+      // Divider
+      ctx.strokeStyle=pr.col+'44'; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.moveTo(22,96); ctx.lineTo(w-22,96); ctx.stroke();
+      // Stat badge
+      ctx.fillStyle=pr.col+'22'; ctx.roundRect(22,108,180,34,8); ctx.fill();
+      ctx.strokeStyle=pr.col+'66'; ctx.lineWidth=1; ctx.roundRect(22,108,180,34,8); ctx.stroke();
+      ctx.font='bold 15px Share Tech Mono,monospace'; ctx.fillStyle=pr.col;
+      ctx.fillText(pr.stat,32,131);
+      // Fake chart bars
+      [.7,.45,.85,.6,.9,.5].forEach((v,j)=>{
+        ctx.fillStyle=pr.col+(j%2===0?'99':'44');
+        const bw=34, bh=v*70, bx=22+j*40, by=200;
+        ctx.fillRect(bx,by-bh,bw,bh);
+      });
+      // URL
+      ctx.font='12px Share Tech Mono,monospace'; ctx.fillStyle=pr.col+'88';
+      ctx.fillText(pr.url,22,h-14);
+    });
+    const dist=3.8;
+    const mesh=new THREE.Mesh(
+      new THREE.PlaneGeometry(2.8,1.75),
+      new THREE.MeshStandardMaterial({map:tex,side:THREE.DoubleSide,transparent:true,roughness:.2,metalness:.1})
+    );
+    mesh.position.set(Math.sin(pr.angle)*dist,pr.y,Math.cos(pr.angle)*dist-1.5);
+    mesh.rotation.y=-pr.angle;
+    scene.add(mesh);
+
+    // Frame glow edge
+    const frame=new THREE.Mesh(new THREE.EdgesGeometry(new THREE.BoxGeometry(2.85,1.8,.01)),
+      new THREE.LineBasicMaterial({color:new THREE.Color(pr.col),transparent:true,opacity:.4}));
+    frame.position.copy(mesh.position); frame.rotation.copy(mesh.rotation); scene.add(frame);
+
+    meshes.push({mesh,frame,angle:pr.angle,dist,y:pr.y,i});
+  });
+
+  scene.add(new THREE.AmbientLight(0x111133,.7));
+  [col,'#ff6b35','#e50914'].forEach((c,i)=>{
+    const pl=new THREE.PointLight(new THREE.Color(c),2,14);
+    pl.position.set(Math.sin(-.55+i*.55)*4,0,Math.cos(-.55+i*.55)*3);
+    scene.add(pl);
+  });
+
+  return function(t){
+    meshes.forEach((m,i)=>{
+      m.mesh.position.y=m.y+Math.sin(t*.4+i*1.1)*.08;
+      m.frame.position.copy(m.mesh.position);
+      // Subtle sway
+      m.mesh.rotation.y=-m.angle+Math.sin(t*.12+i)*.03;
+      m.frame.rotation.copy(m.mesh.rotation);
+    });
+    parallaxCam(t,-1,.3,5.5,.5);
+  };
+}
+
+// -- SCENE 3: Experience -- 3D globe with animated arcs --
+function buildScene_Experience(scene,col){
+  initMouseParallax();
+  addStarField(scene,500,28);
+
+  // Globe with land-mass texture
+  const globeTex=canvasTex(512,256,(ctx,w,h)=>{
+    // Ocean
+    ctx.fillStyle='#0a1628'; ctx.fillRect(0,0,w,h);
+    // Simple land patches using noise-like rects
+    ctx.fillStyle='#1a3a2a';
+    [[.1,.2,.25,.35],[.35,.1,.2,.4],[.55,.15,.3,.3],[.62,.5,.2,.25],
+     [.05,.55,.15,.2],[.38,.55,.18,.22],[.72,.3,.12,.2]].forEach(([x,y,dw,dh])=>{
+      ctx.beginPath(); ctx.ellipse(x*w,y*h,dw*w/2,dh*h/2,0,0,Math.PI*2); ctx.fill();
+    });
+    // India region highlight
+    ctx.fillStyle=col+'55'; ctx.beginPath(); ctx.ellipse(.75*w,.38*h,18,22,0,0,Math.PI*2); ctx.fill();
+    // Grid overlay
+    ctx.strokeStyle='rgba(100,180,255,.06)'; ctx.lineWidth=.5;
+    for(let i=0;i<=8;i++){ctx.beginPath();ctx.moveTo(i*w/8,0);ctx.lineTo(i*w/8,h);ctx.stroke();}
+    for(let i=0;i<=6;i++){ctx.beginPath();ctx.moveTo(0,i*h/6);ctx.lineTo(w,i*h/6);ctx.stroke();}
+  });
+  const globe=new THREE.Mesh(
+    new THREE.SphereGeometry(1.8,64,64),
+    new THREE.MeshStandardMaterial({map:globeTex,roughness:.7,metalness:.1,emissive:0x0a1628,emissiveIntensity:.2})
+  );
+  scene.add(globe);
+
+  // Atmosphere
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.95,32,32),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.04,side:THREE.BackSide})));
+
+  // City pins + pulsing rings
+  const cities=[
+    {lat:28.6,lon:77.2,lbl:'Delhi NCR',home:true},
+    {lat:12.9,lon:77.6,lbl:'Bengaluru',home:false},
+    {lat:17.4,lon:78.5,lbl:'Hyderabad',home:false},
+    {lat:19.1,lon:72.9,lbl:'Mumbai',home:false},
+    {lat:22.6,lon:88.4,lbl:'Kolkata',home:false},
+  ];
+  const pinObjs=[];
+  cities.forEach((city,ci)=>{
+    const phi=(90-city.lat)*Math.PI/180, theta=(city.lon+180)*Math.PI/180;
+    const R=1.85;
+    const x=R*Math.sin(phi)*Math.cos(theta), y=R*Math.cos(phi), z=R*Math.sin(phi)*Math.sin(theta);
+    const c=city.home?'#ffffff':col;
+    // Pin sphere
+    const pin=new THREE.Mesh(new THREE.SphereGeometry(.055,12,12),new THREE.MeshBasicMaterial({color:new THREE.Color(c)}));
+    pin.position.set(x,y,z); scene.add(pin);
+    // 3 pulse rings at different phases
+    const rings=[];
+    for(let r=0;r<3;r++){
+      const ring=new THREE.Mesh(new THREE.RingGeometry(.06,.11,24),
+        new THREE.MeshBasicMaterial({color:new THREE.Color(c),transparent:true,opacity:0,side:THREE.DoubleSide}));
+      ring.position.set(x,y,z); ring.lookAt(0,0,0); scene.add(ring);
+      rings.push({mesh:ring,phase:r/3});
+    }
+    // Label
+    const lbl=new THREE.Mesh(new THREE.PlaneGeometry(.9,.2),new THREE.MeshBasicMaterial({
+      map:canvasTex(180,40,(ctx,w,h)=>{ ctx.font='bold 16px Share Tech Mono,monospace'; ctx.fillStyle=c; ctx.textAlign='center'; ctx.fillText(city.lbl,w/2,26); }),
+      transparent:true,side:THREE.DoubleSide
+    }));
+    lbl.position.set(x*1.12,y+.22,z*1.12); scene.add(lbl);
+    pinObjs.push({pin,rings,lbl,x,y,z,ci});
+  });
+
+  // Animated arcs from Delhi to each city
+  const arcLines=[];
+  cities.forEach((city,ci)=>{
+    if(ci===0) return;
+    const phiA=(90-cities[0].lat)*Math.PI/180, tA=(cities[0].lon+180)*Math.PI/180;
+    const phiB=(90-city.lat)*Math.PI/180, tB=(city.lon+180)*Math.PI/180;
+    const R=1.92;
+    const p1=new THREE.Vector3(R*Math.sin(phiA)*Math.cos(tA),R*Math.cos(phiA),R*Math.sin(phiA)*Math.sin(tA));
+    const p2=new THREE.Vector3(R*Math.sin(phiB)*Math.cos(tB),R*Math.cos(phiB),R*Math.sin(phiB)*Math.sin(tB));
+    const mid=p1.clone().add(p2).multiplyScalar(.5).normalize().multiplyScalar(R*1.28);
+    const curve=new THREE.QuadraticBezierCurve3(p1,mid,p2);
+    const pts=curve.getPoints(50);
+    const geo=new THREE.BufferGeometry().setFromPoints(pts);
+    const line=new THREE.Line(geo,new THREE.LineBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.3}));
+    scene.add(line);
+    // Travelling dot
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(.04,8,8),new THREE.MeshBasicMaterial({color:new THREE.Color(col)}));
+    scene.add(dot);
+    arcLines.push({curve,dot,phase:ci/cities.length});
+  });
+
+  scene.add(new THREE.AmbientLight(0x112244,.5));
+  const dl=new THREE.DirectionalLight(0xffffff,1.5); dl.position.set(5,3,5); scene.add(dl);
+  const pl=new THREE.PointLight(new THREE.Color(col),3,14); pl.position.set(3,2,3); scene.add(pl);
+
+  return function(t){
+    globe.rotation.y=t*.06;
+    pinObjs.forEach(po=>{
+      po.rings.forEach(r=>{
+        const p=(t*.5+r.phase)%1;
+        r.mesh.scale.setScalar(.8+p*2.5);
+        r.mesh.material.opacity=(1-p)*.7;
+      });
+      po.lbl.lookAt(ovCamera.position);
+    });
+    arcLines.forEach(al=>{
+      const p=((t*.25+al.phase)%1);
+      const pt=al.curve.getPoint(p);
+      al.dot.position.copy(pt);
+    });
+    pl.intensity=2.5+Math.sin(t*2)*.6;
+    parallaxCam(t,.5,.5,4.8,.4);
+  };
+}
+
+// -- SCENE 4: Achievements -- constellation of trophies --
+function buildScene_Achievements(scene,col){
+  initMouseParallax();
+  addStarField(scene,450,24);
+
+  // Central star burst
+  const starMesh=new THREE.Mesh(
+    new THREE.OctahedronGeometry(.7,2),
+    new THREE.MeshStandardMaterial({color:new THREE.Color(col),emissive:new THREE.Color(col),emissiveIntensity:.9,roughness:.1,metalness:.7})
+  );
+  scene.add(starMesh);
+  // Inner glow sphere
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.1,32,32),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.06,side:THREE.BackSide})));
+
+  // Achievement nodes orbiting
+  const achievements=[
+    {lbl:'NIAT 2025',sub:'Shortlisted 500+',col:col,dist:2.4,speed:.38,a:0,h:.4,size:.22},
+    {lbl:'Google Top 250',sub:'10,000+ pool',col:'#4285f4',dist:3,speed:.26,a:Math.PI*.5,h:-.3,size:.18},
+    {lbl:'NIKA Live',sub:'20+ real users',col:'#34a853',dist:2.6,speed:.42,a:Math.PI,h:.2,size:.2},
+    {lbl:'OpenAI x NxtWave',sub:'National level',col:'#ff9500',dist:2.8,speed:.32,a:Math.PI*1.5,h:-.5,size:.16},
+  ];
+  const nodes=[];
+  achievements.forEach((ac,i)=>{
+    // Sphere node
+    const node=new THREE.Mesh(
+      new THREE.SphereGeometry(ac.size,24,24),
+      new THREE.MeshStandardMaterial({color:new THREE.Color(ac.col),emissive:new THREE.Color(ac.col),emissiveIntensity:.6,roughness:.2,metalness:.5})
+    );
+    node.position.set(Math.cos(ac.a)*ac.dist,ac.h,Math.sin(ac.a)*ac.dist);
+    scene.add(node);
+    // Connecting line to center
+    const lGeo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),node.position.clone()]);
+    scene.add(new THREE.Line(lGeo,new THREE.LineBasicMaterial({color:new THREE.Color(ac.col),transparent:true,opacity:.2})));
+    // Orbit path
+    const oPts=[]; for(let j=0;j<=64;j++){const aa=j/64*Math.PI*2; oPts.push(new THREE.Vector3(Math.cos(aa)*ac.dist,ac.h,Math.sin(aa)*ac.dist));}
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(oPts),new THREE.LineBasicMaterial({color:new THREE.Color(ac.col),transparent:true,opacity:.1})));
+    // Label card
+    const card=new THREE.Mesh(new THREE.PlaneGeometry(1.7,.7),new THREE.MeshBasicMaterial({
+      map:canvasTex(340,140,(ctx,w,h)=>{
+        ctx.fillStyle='rgba(5,8,20,.92)'; ctx.roundRect(0,0,w,h,10); ctx.fill();
+        ctx.strokeStyle=ac.col+'aa'; ctx.lineWidth=1.5; ctx.roundRect(1,1,w-2,h-2,9); ctx.stroke();
+        ctx.font='bold 22px Orbitron,monospace'; ctx.fillStyle=ac.col; ctx.textAlign='center'; ctx.fillText(ac.lbl,w/2,42);
+        ctx.font='13px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.6)'; ctx.fillText(ac.sub,w/2,72);
+      }),transparent:true,side:THREE.DoubleSide
+    }));
+    card.position.copy(node.position); card.position.y+=.6;
+    scene.add(card);
+    nodes.push({node,card,ac,baseAngle:ac.a});
+  });
+
+  scene.add(new THREE.AmbientLight(0x111133,.5));
+  const pl=new THREE.PointLight(new THREE.Color(col),5,16); pl.position.set(0,1,2); scene.add(pl);
+  const pl2=new THREE.PointLight(0x4488ff,2,20); pl2.position.set(-3,-1,3); scene.add(pl2);
+
+  return function(t){
+    starMesh.rotation.y=t*.5; starMesh.rotation.x=t*.2;
+    starMesh.material.emissiveIntensity=.7+Math.sin(t*3)*.3;
+    nodes.forEach(nd=>{
+      const a=nd.baseAngle+t*nd.ac.speed;
+      nd.node.position.set(Math.cos(a)*nd.ac.dist,nd.ac.h+Math.sin(t*.3+nd.baseAngle)*.15,Math.sin(a)*nd.ac.dist);
+      nd.node.material.emissiveIntensity=.5+Math.sin(t*2+nd.baseAngle)*.3;
+      nd.card.position.copy(nd.node.position); nd.card.position.y+=.55; nd.card.lookAt(ovCamera.position);
+    });
+    pl.intensity=4+Math.sin(t*2.5)*1.2;
+    parallaxCam(t,0,.8,5.5,.4);
+  };
+}
+
+// -- SCENE 5: Certifications -- glowing crystal with badge orbit --
+function buildScene_Certifications(scene,col){
+  initMouseParallax();
+  addStarField(scene,380,22);
+
+  // Central crystal
+  const crystal=new THREE.Mesh(new THREE.IcosahedronGeometry(.65,1),
+    new THREE.MeshStandardMaterial({color:new THREE.Color(col),emissive:new THREE.Color(col),emissiveIntensity:.8,roughness:.05,metalness:.8,transparent:true,opacity:.9}));
+  scene.add(crystal);
+  const crystalWF=new THREE.Mesh(new THREE.IcosahedronGeometry(.72,1),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(col),wireframe:true,transparent:true,opacity:.2}));
+  scene.add(crystalWF);
+
+  // 3 concentric pulse rings
+  const pulseRings=[];
+  for(let r=0;r<4;r++){
+    const ring=new THREE.Mesh(new THREE.RingGeometry(.7,.74,48),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:0,side:THREE.DoubleSide}));
+    scene.add(ring); pulseRings.push({mesh:ring,phase:r/4});
+  }
+
+  // 5 cert badges orbiting on different planes
+  const certs=[
+    {lbl:'Oracle Cloud AI',sub:'Valid 2027',col:col,r:2.3,spd:.28,a:0,tilt:.3},
+    {lbl:'Google Gemini',sub:'Valid 2028',col:'#4285f4',r:2.8,spd:.2,a:1.26,tilt:-.2},
+    {lbl:'Google Adv Analytics',sub:'Active',col:'#34a853',r:2.0,spd:.36,a:2.51,tilt:.5},
+    {lbl:'KPMG Forage',sub:'Completed',col:'#0033a0',r:2.6,spd:.16,a:3.77,tilt:-.4},
+    {lbl:'PwC Power BI',sub:'Completed',col:'#d93025',r:2.4,spd:.24,a:5.03,tilt:.1},
+  ];
+  const certObjs=[];
+  certs.forEach((c,i)=>{
+    const badge=new THREE.Mesh(new THREE.PlaneGeometry(1.6,.9),new THREE.MeshBasicMaterial({
+      map:canvasTex(320,180,(ctx,w,h)=>{
+        ctx.fillStyle='rgba(5,8,20,.95)'; ctx.roundRect(0,0,w,h,12); ctx.fill();
+        ctx.strokeStyle=c.col; ctx.lineWidth=2; ctx.roundRect(1,1,w-2,h-2,11); ctx.stroke();
+        ctx.fillStyle=c.col+'30'; ctx.roundRect(0,0,w,50,12); ctx.fill();
+        // Icon circle
+        ctx.fillStyle=c.col+'33'; ctx.beginPath(); ctx.arc(30,h/2,20,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle=c.col; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(30,h/2,20,0,Math.PI*2); ctx.stroke();
+        ctx.font='bold 16px Orbitron,monospace'; ctx.fillStyle=c.col; ctx.textAlign='left'; ctx.fillText(c.lbl,60,36);
+        ctx.font='13px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.6)'; ctx.fillText(c.sub,60,70);
+        // Check mark
+        ctx.fillStyle=c.col; ctx.font='16px sans-serif'; ctx.textAlign='center'; ctx.fillText('OK',30,h/2+6);
+      }),transparent:true,side:THREE.DoubleSide
+    }));
+    const ax=Math.cos(c.a)*c.r, ay=Math.sin(c.tilt)*c.r*.3, az=Math.sin(c.a)*c.r;
+    badge.position.set(ax,ay,az); badge.lookAt(0,0,0); scene.add(badge);
+    certObjs.push({badge,c,baseA:c.a});
+  });
+
+  scene.add(new THREE.AmbientLight(0x112255,.6));
+  const pl=new THREE.PointLight(new THREE.Color(col),5,18); pl.position.set(0,1,2); scene.add(pl);
+  const pl2=new THREE.PointLight(0x4488ff,2,15); pl2.position.set(-3,2,2); scene.add(pl2);
+
+  return function(t){
+    crystal.rotation.y=t*.3; crystal.rotation.x=t*.12;
+    crystalWF.rotation.y=-t*.2; crystalWF.rotation.x=t*.08;
+    crystal.material.emissiveIntensity=.6+Math.sin(t*2.5)*.3;
+    pulseRings.forEach(r=>{
+      const p=(t*.5+r.phase)%1;
+      r.mesh.scale.setScalar(.8+p*4); r.mesh.material.opacity=(1-p)*.4;
+    });
+    certObjs.forEach(co=>{
+      const a=co.baseA+t*co.c.spd;
+      co.badge.position.set(Math.cos(a)*co.c.r,Math.sin(co.c.tilt+t*.05)*co.c.r*.3,Math.sin(a)*co.c.r);
+      co.badge.lookAt(ovCamera.position);
+    });
+    pl.intensity=4+Math.sin(t*2)*.8;
+    parallaxCam(t,.5,.5,5.5,.4);
+  };
+}
+
+// -- SCENE 6: Education -- solar system bookshelf --
+function buildScene_Education(scene,col){
+  initMouseParallax();
+  addStarField(scene,400,22);
+
+  // Main book with open pages
+  const spineM=new THREE.MeshStandardMaterial({color:new THREE.Color(col),roughness:.5,metalness:.2});
+  const spine=new THREE.Mesh(new THREE.BoxGeometry(.18,2.8,.12),spineM); scene.add(spine);
+
+  // Pages with content textures
+  const pageTex=canvasTex(400,500,(ctx,w,h)=>{
+    ctx.fillStyle='rgba(10,16,30,.96)'; ctx.fillRect(0,0,w,h);
+    ctx.fillStyle=col+'22'; ctx.fillRect(0,0,w,50);
+    ctx.font='bold 20px Orbitron,monospace'; ctx.fillStyle=col; ctx.textAlign='center'; ctx.fillText('BBA Analytics',w/2,32);
+    ctx.font='14px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.7)'; ctx.textAlign='left';
+    ['SRM University, Delhi NCR','CGPA: 7.91 / 10.0','Aug 2023 - Jun 2026','Business Intelligence','Data Management','Operations Analytics','Financial Analytics'].forEach((l,i)=>{
+      ctx.fillText(l,20,72+i*30);
+    });
+  });
+  const leftPage=new THREE.Mesh(new THREE.PlaneGeometry(2,2.8),new THREE.MeshStandardMaterial({map:pageTex,side:THREE.DoubleSide,roughness:.8}));
+  leftPage.position.set(-1.05,0,.06); leftPage.rotation.y=.2; scene.add(leftPage);
+
+  const pageTex2=canvasTex(400,500,(ctx,w,h)=>{
+    ctx.fillStyle='rgba(10,16,30,.96)'; ctx.fillRect(0,0,w,h);
+    ctx.fillStyle=col+'22'; ctx.fillRect(0,0,w,50);
+    ctx.font='bold 20px Orbitron,monospace'; ctx.fillStyle='#d4a840'; ctx.textAlign='center'; ctx.fillText('Diploma French B1',w/2,32);
+    ctx.font='14px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.7)'; ctx.textAlign='left';
+    ['Alliance Francaise Delhi','DELF B1 - May 2026','Opens MBA in Canada','Rotman - Toronto','Ivey - Western','Desautels - McGill','HEC Paris, ESSEC'].forEach((l,i)=>{
+      ctx.fillText(l,20,72+i*30);
+    });
+  });
+  const rightPage=new THREE.Mesh(new THREE.PlaneGeometry(2,2.8),new THREE.MeshStandardMaterial({map:pageTex2,side:THREE.DoubleSide,roughness:.8}));
+  rightPage.position.set(1.05,0,.06); rightPage.rotation.y=-.2; scene.add(rightPage);
+
+  // Floating subject pills orbiting
+  const subjects=['Statistics','Data Mgmt','Biz Intelligence','Ops Analytics','Econometrics','Fin Analytics','SQL','Python','Power BI'];
+  const pillMeshes=[];
+  subjects.forEach((s,i)=>{
+    const a=i/subjects.length*Math.PI*2;
+    const pill=new THREE.Mesh(new THREE.PlaneGeometry(1.2,.3),new THREE.MeshBasicMaterial({
+      map:canvasTex(240,60,(ctx,w,h)=>{
+        ctx.fillStyle=col+'18'; ctx.roundRect(0,0,w,h,30); ctx.fill();
+        ctx.strokeStyle=col+'55'; ctx.lineWidth=1; ctx.roundRect(1,1,w-2,h-2,29); ctx.stroke();
+        ctx.font='12px Share Tech Mono,monospace'; ctx.fillStyle=col+'cc'; ctx.textAlign='center'; ctx.fillText(s,w/2,36);
+      }),transparent:true,side:THREE.DoubleSide
+    }));
+    pill.position.set(Math.cos(a)*3.4,(Math.random()-.5)*1.8,Math.sin(a)*3.4);
+    scene.add(pill); pillMeshes.push({pill,a,dist:3.4,baseY:pill.position.y,i});
+  });
+
+  scene.add(new THREE.AmbientLight(0x112244,.6));
+  const dl=new THREE.DirectionalLight(0xffffff,1.4); dl.position.set(4,5,4); scene.add(dl);
+  const pl=new THREE.PointLight(new THREE.Color(col),3,16); pl.position.set(0,2,3); scene.add(pl);
+
+  return function(t){
+    leftPage.rotation.y=.2+Math.sin(t*.2)*.04;
+    rightPage.rotation.y=-.2-Math.sin(t*.2)*.04;
+    pillMeshes.forEach(p=>{
+      const a=p.a+t*.08;
+      p.pill.position.x=Math.cos(a)*p.dist;
+      p.pill.position.y=p.baseY+Math.sin(t*.4+p.i)*.12;
+      p.pill.position.z=Math.sin(a)*p.dist;
+      p.pill.lookAt(ovCamera.position);
+    });
+    parallaxCam(t,0,.5,5.5,.35);
+  };
+}
+
+// -- SCENE 7: NIKA AI -- live neural net with signal pulses --
+function buildScene_NIKAAi(scene,col){
+  initMouseParallax();
+  addStarField(scene,400,22);
+
+  // Neural network -- 5 layers
+  const layers=[3,5,6,5,3];
+  const nodeObjs=[]; const pulses=[];
+  const connections=[];
+
+  layers.forEach((cnt,li)=>{
+    const x=-2.2+li*1.1;
+    for(let j=0;j<cnt;j++){
+      const y=(j-(cnt-1)/2)*.95;
+      const node=new THREE.Mesh(new THREE.SphereGeometry(.11,16,16),
+        new THREE.MeshStandardMaterial({color:new THREE.Color(col),emissive:new THREE.Color(col),emissiveIntensity:.4,roughness:.2,metalness:.5}));
+      node.position.set(x,y,0); scene.add(node);
+      nodeObjs.push({mesh:node,li,ji:j,x,y,phase:Math.random()*Math.PI*2,layer:li});
+      // Connect to next layer
+      if(li<layers.length-1){
+        const nxt=layers[li+1];
+        for(let k=0;k<nxt;k++){
+          const y2=(k-(nxt-1)/2)*.95;
+          const pts=[new THREE.Vector3(x,y,0),new THREE.Vector3(x+1.1,y2,0)];
+          const geo=new THREE.BufferGeometry().setFromPoints(pts);
+          const line=new THREE.Line(geo,new THREE.LineBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.1}));
+          scene.add(line);
+          connections.push({line,p0:pts[0].clone(),p1:pts[1].clone(),li,lj:li+1,opacity:.1});
+        }
+      }
+    }
+  });
+
+  // Floating NIKA title
+  const title=new THREE.Mesh(new THREE.PlaneGeometry(2.4,.5),new THREE.MeshBasicMaterial({
+    map:canvasTex(480,100,(ctx,w,h)=>{
+      ctx.font='bold 44px Orbitron,monospace'; ctx.fillStyle='#fff'; ctx.textAlign='center'; ctx.fillText('NIKA AI',w/2,62);
+      ctx.font='14px Share Tech Mono,monospace'; ctx.fillStyle=col; ctx.fillText('Neural Intelligence Knowledge Assistant',w/2,88);
+    }),transparent:true,side:THREE.DoubleSide
+  }));
+  title.position.set(0,2.4,0); scene.add(title);
+
+  // Signal pulse particles that travel along connections
+  for(let i=0;i<12;i++){
+    const ci=Math.floor(Math.random()*connections.length);
+    const conn=connections[ci];
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(.055,8,8),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:0}));
+    scene.add(dot);
+    pulses.push({dot,conn,progress:Math.random(),speed:.008+Math.random()*.012});
+  }
+
+  scene.add(new THREE.AmbientLight(0x112244,.5));
+  const pl=new THREE.PointLight(new THREE.Color(col),4,18); pl.position.set(0,1,3); scene.add(pl);
+
+  return function(t){
+    // Node pulse activation wave sweeping left to right
+    nodeObjs.forEach(n=>{
+      const wave=Math.sin(t*1.2-n.li*.8+n.phase);
+      const act=(wave*.5+.5);
+      n.mesh.material.emissiveIntensity=.2+act*.9;
+      n.mesh.scale.setScalar(.85+act*.25);
+    });
+    // Connection flicker
+    connections.forEach((c,i)=>{
+      c.line.material.opacity=.05+Math.sin(t*.8+i*.15)*.06;
+    });
+    // Signal pulses
+    pulses.forEach(p=>{
+      p.progress+=p.speed;
+      if(p.progress>1){ p.progress=0; const ci=Math.floor(Math.random()*connections.length); p.conn=connections[ci]; }
+      const pos=p.conn.p0.clone().lerp(p.conn.p1,p.progress);
+      p.dot.position.copy(pos);
+      p.dot.material.opacity=Math.sin(p.progress*Math.PI)*.9;
+    });
+    pl.intensity=3+Math.sin(t*2.5)*1;
+    parallaxCam(t,0,.3,5.5,.4);
+  };
+}
+
+// -- SCENE 8: Contact -- signal transmission with social orbs --
+function buildScene_Contact(scene,col){
+  initMouseParallax();
+  addStarField(scene,500,26);
+
+  // Central glowing "you" sphere
+  const youTex=canvasTex(128,128,(ctx,w,h)=>{
+    const g=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,w/2);
+    g.addColorStop(0,'#ffffff'); g.addColorStop(.4,col+'cc'); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
+  });
+  const core=new THREE.Mesh(new THREE.SphereGeometry(.55,48,48),
+    new THREE.MeshStandardMaterial({map:youTex,emissive:new THREE.Color(col),emissiveIntensity:.8,roughness:.1,metalness:.3,transparent:true,opacity:.95}));
+  scene.add(core);
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(.68,32,32),
+    new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:.06,side:THREE.BackSide})));
+
+  // Radiating wave rings
+  const waves=[];
+  for(let i=0;i<6;i++){
+    const ring=new THREE.Mesh(new THREE.RingGeometry(.56,.62,64),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(col),transparent:true,opacity:0,side:THREE.DoubleSide}));
+    ring.rotation.x=Math.PI/2; scene.add(ring); waves.push({mesh:ring,phase:i/6});
+  }
+
+  // Social platform orbs
+  const socials=[
+    {lbl:'LinkedIn',sub:'jai-narula-aa3185242',col:'#0a66c2',a:0,dist:2.8,h:.3},
+    {lbl:'GitHub',sub:'jaijaijai353',col:'#e0e0e0',a:1.26,dist:2.5,h:.6},
+    {lbl:'Email',sub:'jai.narula08@gmail.com',col:'#ea4335',a:2.51,dist:2.8,h:-.2},
+    {lbl:'Portfolio',sub:'jn.space',col:col,a:3.77,dist:2.5,h:-.4},
+  ];
+  const socialObjs=[];
+  socials.forEach((s,i)=>{
+    // Platform card
+    const card=new THREE.Mesh(new THREE.PlaneGeometry(1.8,1.0),new THREE.MeshStandardMaterial({
+      map:canvasTex(360,200,(ctx,w,h)=>{
+        const bg=ctx.createLinearGradient(0,0,w,h);
+        bg.addColorStop(0,'rgba(6,10,24,.97)'); bg.addColorStop(1,'rgba(12,16,36,.97)');
+        ctx.fillStyle=bg; ctx.roundRect(0,0,w,h,14); ctx.fill();
+        // Left accent
+        ctx.fillStyle=s.col; ctx.fillRect(0,0,5,h);
+        // Icon
+        ctx.fillStyle=s.col+'33'; ctx.beginPath(); ctx.roundRect(18,18,44,44,10); ctx.fill();
+        ctx.strokeStyle=s.col; ctx.lineWidth=2; ctx.beginPath(); ctx.roundRect(18,18,44,44,10); ctx.stroke();
+        ctx.font='bold 20px Share Tech Mono,monospace'; ctx.fillStyle=s.col; ctx.textAlign='center'; ctx.fillText(s.lbl[0]+s.lbl[1],40,46);
+        // Platform name
+        ctx.font='bold 22px Orbitron,monospace'; ctx.fillStyle='#fff'; ctx.textAlign='left'; ctx.fillText(s.lbl,76,38);
+        // Handle
+        ctx.font='13px Share Tech Mono,monospace'; ctx.fillStyle='rgba(180,210,255,.6)'; ctx.fillText(s.sub,76,62);
+        // Divider
+        ctx.strokeStyle=s.col+'33'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(18,84); ctx.lineTo(w-18,84); ctx.stroke();
+        // CTA
+        ctx.fillStyle=s.col+'bb'; ctx.font='bold 12px Share Tech Mono,monospace';
+        ctx.fillText('TAP TO CONNECT  -->', 18, 110);
+      }),side:THREE.DoubleSide,transparent:true,roughness:.2
+    }));
+    card.position.set(Math.cos(s.a)*s.dist,s.h,Math.sin(s.a)*s.dist);
+    card.lookAt(0,0,0); scene.add(card);
+
+    // Connection line
+    const geo=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0),card.position.clone()]);
+    scene.add(new THREE.Line(geo,new THREE.LineBasicMaterial({color:new THREE.Color(s.col),transparent:true,opacity:.15})));
+
+    // Travelling signal dot
+    const dot=new THREE.Mesh(new THREE.SphereGeometry(.065,8,8),
+      new THREE.MeshBasicMaterial({color:new THREE.Color(s.col),transparent:true,opacity:0}));
+    scene.add(dot);
+    socialObjs.push({card,dot,s,phase:i/socials.length});
+  });
+
+  scene.add(new THREE.AmbientLight(0x112244,.5));
+  const pl=new THREE.PointLight(new THREE.Color(col),4,16); pl.position.set(0,1,2); scene.add(pl);
+  const pl2=new THREE.PointLight(0x4466ff,2,14); pl2.position.set(-3,-1,3); scene.add(pl2);
+
+  return function(t){
+    core.rotation.y=t*.2; core.material.emissiveIntensity=.6+Math.sin(t*2)*.25;
+    waves.forEach(w=>{
+      const p=(t*.4+w.phase)%1;
+      w.mesh.scale.setScalar(.8+p*5.5); w.mesh.material.opacity=(1-p)*.5;
+    });
+    socialObjs.forEach(so=>{
+      so.card.position.y=so.s.h+Math.sin(t*.5+so.phase*6)*.1;
+      so.card.lookAt(ovCamera.position);
+      const dp=(t*.6+so.phase)%1;
+      so.dot.position.set(Math.cos(so.s.a)*so.s.dist*dp,so.s.h*dp,Math.sin(so.s.a)*so.s.dist*dp);
+      so.dot.material.opacity=Math.sin(dp*Math.PI);
+    });
+    pl.intensity=3+Math.sin(t*3)*1;
+    parallaxCam(t,0,.4,5.8,.4);
+  };
+}
+
+
+function buildContent_AboutMe(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>The Sun -- About Me</div>
+    <div class="ov-in ov-heading">Jai<br>Narula</div>
+    <div class="ov-in ov-sub">Final-semester BBA Business Analytics, SRM University Delhi NCR. I ship things that work -- NIKA is live with 20+ real institutional users. Top 250 Google Ambassador nationally. Degree completion June 2026.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">20+</div><div class="ov-stat-l">NIKA Users</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">250</div><div class="ov-stat-l">Google Rank</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">7.91</div><div class="ov-stat-l">CGPA</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">500+</div><div class="ov-stat-l">NIAT Pool</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">Jun</div><div class="ov-stat-l">Completion</div></div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">What Makes Me Different</div>
+      <div class="ov-item">Built and deployed NIKA -- 20+ institutional users, not a side project</div>
+      <div class="ov-item">BBA background = business-first thinking on data problems vs pure engineering</div>
+      <div class="ov-item">NIAT 2025 shortlisted -- OpenAI x NxtWave, 500+ national entries</div>
+      <div class="ov-item">Top 250 Google Ambassador out of 10,000+ nationwide (performance metric, not participation)</div>
+      <div class="ov-item">CRM analytics across 3 EdTech verticals at Jaro Education -- real-world pipeline work</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Target Roles</div>
+      <div class="ov-item">Data Analyst or Business Analyst -- entry level MNC</div>
+      <div class="ov-item">Genpact, EXL, Accenture, S&P Global, KPMG, Deloitte USI</div>
+      <div class="ov-item">Delhi NCR (Noida / Gurugram) preferred -- open to Bengaluru, Hyderabad, Mumbai</div>
+      <div class="ov-item">Degree completion June 2026 -- not interested in sales-facing or EdTech roles</div>
+    </div>
+    <div class="ov-in ov-cta">
+      <a href="mailto:jai.narula08@gmail.com" class="ov-btn-primary" style="background:${col};border-color:${col}">Email Me</a>
+      <a href="tel:+917042426504" class="ov-btn-secondary">+91 70424 26504</a>
+      <a href="https://www.linkedin.com/in/jai-narula-aa3185242/" target="_blank" class="ov-btn-secondary">LinkedIn</a>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">Data Analyst</span><span class="ov-tag">Business Analyst</span><span class="ov-tag">SQL</span><span class="ov-tag">Python</span><span class="ov-tag">Power BI</span><span class="ov-tag">NIKA</span><span class="ov-tag">Delhi NCR</span><span class="ov-tag">June 2026</span></div>
+  `;
+}
+
+function buildContent_Skills(col){
+  const skills=[
+    {n:'SQL',lvl:'Advanced',note:'Joins, CTEs, Window Functions, Subqueries'},
+    {n:'Excel + VBA',lvl:'Advanced',note:'Pivot Tables, XLOOKUP, Macros, Data Models'},
+    {n:'Power BI',lvl:'Advanced',note:'DAX, Power Query, Star Schema, KPI Scorecards'},
+    {n:'Python (Pandas)',lvl:'Intermediate',note:'EDA, Wrangling, Automation, Pipelines'},
+    {n:'LeadSquared CRM',lvl:'Intermediate',note:'Pipeline Mgmt, Lead Scoring, Workflow Automation'},
+    {n:'DAX',lvl:'Intermediate',note:'Time Intelligence, Calculated Columns, Measures'},
+    {n:'NumPy + Seaborn',lvl:'Intermediate',note:'Statistical Analysis, Visualisation'},
+    {n:'Git + GitHub',lvl:'Intermediate',note:'Version Control, Open Source Contributions'},
+    {n:'Flask + REST API',lvl:'Working',note:'Backend Development via NIKA project'},
+    {n:'React',lvl:'Working',note:'Frontend Components via NIKA project'},
+  ];
+  const levelColor={'Advanced':'#00e5ff','Intermediate':col,'Working':'rgba(180,200,255,.5)'};
+  const bars = skills.map(sk=>`
+    <div class="ov-skill">
+      <div class="ov-skill-row">
+        <span class="ov-skill-name">${sk.n}</span>
+        <span class="ov-skill-pct" style="color:${levelColor[sk.lvl]||col};font-size:.55rem;letter-spacing:.08em">${sk.lvl}</span>
+      </div>
+      <div class="ov-skill-note">${sk.note}</div>
+      <div class="ov-bar-track"><div class="ov-bar-fill" style="background:linear-gradient(90deg,${col},${col}aa)" data-pct="${sk.lvl==='Advanced'?90:sk.lvl==='Intermediate'?68:48}"></div></div>
+    </div>`).join('');
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Mercury -- Technical Stack</div>
+    <div class="ov-in ov-heading">Skills</div>
+    <div class="ov-in ov-sub">Built across 3 live projects, 1 internship and 5 industry certifications. Every tool here has been used on real data for real stakeholders.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">10+</div><div class="ov-stat-l">Tools</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">3</div><div class="ov-stat-l">Projects</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">2+</div><div class="ov-stat-l">Years</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">5</div><div class="ov-stat-l">Certs</div></div>
+    </div>
+    <div class="ov-in ov-section">${bars}</div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Analytics Methods</div>
+      <div class="ov-item">Exploratory Data Analysis -- distributions, correlations, outlier detection</div>
+      <div class="ov-item">Funnel Analysis, Cohort Analysis, Retention Metrics, Variance Analysis</div>
+      <div class="ov-item">RFM Segmentation, Time Intelligence, Stakeholder Dashboards</div>
+      <div class="ov-item">CRM Ops -- lead scoring, pipeline management, conversion tracking</div>
+      <div class="ov-item">ETL design, Root Cause Analysis, Ad Hoc Reporting</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Domains Applied In</div>
+      <div class="ov-item">EdTech -- CRM analytics, lead funnel ops, KRA dashboards (Jaro Education)</div>
+      <div class="ov-item">E-Commerce -- regional sales, fulfillment SLA, RFM segmentation (Blinkit)</div>
+      <div class="ov-item">Media & Content -- EDA, content trends, genre analysis (Netflix)</div>
+      <div class="ov-item">Institutional Analytics -- performance tracking, AI-narrated insights (NIKA)</div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">SQL</span><span class="ov-tag">Power BI</span><span class="ov-tag">Python</span><span class="ov-tag">Excel</span><span class="ov-tag">DAX</span><span class="ov-tag">Pandas</span><span class="ov-tag">VBA</span><span class="ov-tag">LeadSquared</span><span class="ov-tag">Flask</span><span class="ov-tag">React</span></div>
+  `;
+}
+
+function buildContent_Projects(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Venus -- Selected Work</div>
+    <div class="ov-in ov-heading">Projects</div>
+    <div class="ov-in ov-sub">Three production-grade analytics projects. Each deployed or published -- covering AI platforms, Power BI dashboards and Python EDA pipelines.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">20+</div><div class="ov-stat-l">Live Users</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">5k+</div><div class="ov-stat-l">Records</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">3</div><div class="ov-stat-l">Deployed</div></div>
+    </div>
+    <div class="ov-in ov-project">
+      <div class="ov-project-head">
+        <div class="ov-project-icon" style="background:${col}22;color:${col};border:1px solid ${col}44">NK</div>
+        <div><div class="ov-project-title" style="color:${col}">NIKA -- AI Analytics Platform</div><div class="ov-project-role">Gemini AI + Flask + React + Vercel</div></div>
+      </div>
+      <div class="ov-project-body">
+        <div class="ov-project-desc">Full-stack AI web app. Upload any dataset and get automated statistical analysis narrated in plain English by Gemini AI. Interactive dashboard, ETL pipeline and export. 20+ institutional users at SRM University. Shortlisted at NIAT 2025 among 500+ entries.</div>
+        <div class="ov-chips"><span class="ov-chip">Gemini AI</span><span class="ov-chip">Flask</span><span class="ov-chip">React</span><span class="ov-chip">Python</span><span class="ov-chip">Vercel</span><span class="ov-chip">REST API</span><span class="ov-chip">ETL</span></div>
+        <a href="https://nika-ai-platform.vercel.app/" target="_blank" class="ov-link" style="color:${col};border-color:${col}">Live Demo</a>
+        <a href="https://github.com/jaijaijai353/NIKA--main" target="_blank" class="ov-link" style="color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.2)">GitHub</a>
+      </div>
+    </div>
+    <div class="ov-in ov-project">
+      <div class="ov-project-head">
+        <div class="ov-project-icon" style="background:#ff6b3522;color:#ff6b35;border:1px solid #ff6b3544">BL</div>
+        <div><div class="ov-project-title" style="color:#ff6b35">Blinkit Regional Sales Dashboard</div><div class="ov-project-role">Power BI + DAX + Star Schema</div></div>
+      </div>
+      <div class="ov-project-body">
+        <div class="ov-project-desc">End-to-end Power BI solution for regional sales analysis. Star Schema with 5 tables, DAX time intelligence (MOM, YOY, rolling 30-day), order fulfillment rates, SLA compliance and RFM customer segmentation. Eliminated manual Excel reporting -- saved teams 3+ hours per week.</div>
+        <div class="ov-chips"><span class="ov-chip">Power BI</span><span class="ov-chip">DAX</span><span class="ov-chip">Star Schema</span><span class="ov-chip">Power Query</span><span class="ov-chip">RFM</span><span class="ov-chip">Time Intel</span></div>
+        <a href="https://github.com/jaijaijai353/Blinkit-Sales-Dashboard" target="_blank" class="ov-link" style="color:#ff6b35;border-color:#ff6b35">GitHub</a>
+      </div>
+    </div>
+    <div class="ov-in ov-project">
+      <div class="ov-project-head">
+        <div class="ov-project-icon" style="background:#e5091422;color:#e50914;border:1px solid #e5091444">NF</div>
+        <div><div class="ov-project-title" style="color:#e50914">Netflix Content EDA Pipeline</div><div class="ov-project-role">Python + Pandas + Seaborn + Matplotlib</div></div>
+      </div>
+      <div class="ov-project-body">
+        <div class="ov-project-desc">Modular Python EDA pipeline on 5,000+ Netflix titles. Automated data validation, outlier detection and multi-step cleansing. Key finding: 3x spike in international originals post-2015, genre shifts post-COVID, duration trends by region.</div>
+        <div class="ov-chips"><span class="ov-chip">Python</span><span class="ov-chip">Pandas</span><span class="ov-chip">NumPy</span><span class="ov-chip">Seaborn</span><span class="ov-chip">Matplotlib</span><span class="ov-chip">EDA</span></div>
+        <a href="https://github.com/jaijaijai353/Netflix-EDA-Analysis" target="_blank" class="ov-link" style="color:#e50914;border-color:#e50914">GitHub</a>
+      </div>
+    </div>
+  `;
+}
+
+function buildContent_Experience(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Earth -- Work History</div>
+    <div class="ov-in ov-heading">Experience</div>
+    <div class="ov-in ov-sub">Real analytics across CRM ops, community leadership and tech. Every role involved actual data -- not theoretical exercises.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">3+</div><div class="ov-stat-l">Roles</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">500+</div><div class="ov-stat-l">Community</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">10+</div><div class="ov-stat-l">Workshops</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">250+</div><div class="ov-stat-l">Daily Reach</div></div>
+    </div>
+    <div class="ov-in ov-timeline">
+      <div class="ov-tl-item" style="color:${col}">
+        <div class="ov-tl-co">Jaro Education</div>
+        <div class="ov-tl-role">Graduate Trainee -- Jan to Mar 2026</div>
+        <div class="ov-tl-li">Managed CRM pipeline across 3+ EdTech verticals in LeadSquared</div>
+        <div class="ov-tl-li">100+ weekly leads segmented by fit score, budget and enrollment intent</div>
+        <div class="ov-tl-li">Monthly Power BI dashboard tracking KRAs, conversion rates and funnel velocity</div>
+        <div class="ov-tl-li">250+ daily outreach touchpoints -- consistently tracking 6 qualified conversions/day</div>
+        <div class="ov-tl-li">Identified funnel drop-off patterns, flagged to team lead -- improved follow-up timing</div>
+      </div>
+      <div class="ov-tl-item" style="color:#4285f4">
+        <div class="ov-tl-co">Google India</div>
+        <div class="ov-tl-role">Student Ambassador -- Aug to Dec 2025</div>
+        <div class="ov-tl-li">Top 250 nationally among 10,000+ ambassadors -- performance ranked, not participation</div>
+        <div class="ov-tl-li">Built a 500+ member Google tech community from zero in under 6 months</div>
+        <div class="ov-tl-li">Led 10+ technical workshops on Google Cloud, Gemini AI and data analytics</div>
+        <div class="ov-tl-li">3 cross-campus events with 200+ attendees each</div>
+        <div class="ov-tl-li">Open-sourced Gemini prompt launcher -- 500+ organic users</div>
+      </div>
+      <div class="ov-tl-item" style="color:#34a853">
+        <div class="ov-tl-co">Google Developer Student Clubs</div>
+        <div class="ov-tl-role">Lead -- 2023 to 2024</div>
+        <div class="ov-tl-li">Founded and led GDSC chapter at SRM University Delhi NCR</div>
+        <div class="ov-tl-li">Grew active membership 50% through targeted outreach and event strategy</div>
+        <div class="ov-tl-li">Coordinated with Google APAC team for resources, speakers and support</div>
+      </div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">LeadSquared</span><span class="ov-tag">Power BI</span><span class="ov-tag">CRM</span><span class="ov-tag">Google</span><span class="ov-tag">Analytics</span><span class="ov-tag">Community</span><span class="ov-tag">GA4</span></div>
+  `;
+}
+
+function buildContent_Achievements(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Mars -- Recognition</div>
+    <div class="ov-in ov-heading">Achievements</div>
+    <div class="ov-in ov-sub">Validated at national level across AI, community building and analytics. These credentials separate a strong candidate from a pool of 10,000+.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">500+</div><div class="ov-stat-l">NIAT Pool</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">10K+</div><div class="ov-stat-l">Google Pool</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">20+</div><div class="ov-stat-l">Live Users</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">600+</div><div class="ov-stat-l">Community</div></div>
+    </div>
+    <div class="ov-in ov-award">
+      <div class="ov-award-icon">&#127942;</div>
+      <div>
+        <div class="ov-award-title" style="color:${col}">NIAT 2025 -- Shortlisted</div>
+        <div class="ov-award-desc">Among 500+ submissions at the National Innovation and AI Tournament (OpenAI x NxtWave). NIKA selected for the cohort -- then deployed live to 20+ institutional users, turning a competition entry into a real product.</div>
+      </div>
+    </div>
+    <div class="ov-in ov-award">
+      <div class="ov-award-icon">&#127941;</div>
+      <div>
+        <div class="ov-award-title" style="color:#4285f4">Google Ambassador Top 250 Nationally</div>
+        <div class="ov-award-desc">Top 250 out of 10,000+ Google Student Ambassadors across India in 2025. Ranking based on measurable community impact -- members onboarded, events hosted, resource engagement, geographic reach. A performance rank, not participation.</div>
+      </div>
+    </div>
+    <div class="ov-in ov-award">
+      <div class="ov-award-icon">&#128640;</div>
+      <div>
+        <div class="ov-award-title" style="color:#72e0e0">NIKA -- Live Product with Real Users</div>
+        <div class="ov-award-desc">Most final-year projects exist only as demo videos. NIKA runs live at nika-xi.vercel.app with 20+ active institutional users (faculty and admin at SRM University) using it for real performance data analysis.</div>
+      </div>
+    </div>
+    <div class="ov-in ov-award">
+      <div class="ov-award-icon">&#127881;</div>
+      <div>
+        <div class="ov-award-title" style="color:#34a853">Community at Scale</div>
+        <div class="ov-award-desc">500+ member Google tech community built from zero in 6 months. 3 cross-campus events (200+ each). Open-source Gemini tool organically adopted by 500+ users. Real people, not LinkedIn vanity metrics.</div>
+      </div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">NIAT 2025</span><span class="ov-tag">Google Top 250</span><span class="ov-tag">OpenAI</span><span class="ov-tag">NxtWave</span><span class="ov-tag">National Level</span></div>
+  `;
+}
+
+function buildContent_Certifications(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Jupiter -- Credentials</div>
+    <div class="ov-in ov-heading">Certifications</div>
+    <div class="ov-in ov-sub">Five verified credentials covering cloud AI, advanced analytics, BI tools and consulting simulations. All current, verifiable and directly relevant to Data and Business Analyst roles.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">5</div><div class="ov-stat-l">Certs</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">2027</div><div class="ov-stat-l">Oracle Valid</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">2028</div><div class="ov-stat-l">Gemini Valid</div></div>
+    </div>
+    <div class="ov-in ov-cert">
+      <div class="ov-cert-badge" style="background:rgba(255,140,0,.12);color:#ff8c00;border:1px solid rgba(255,140,0,.25)">OCI</div>
+      <div><div class="ov-cert-name" style="color:${col}">Oracle Cloud AI and Data Science Professional</div><div class="ov-cert-meta">Oracle Certified -- Valid through 2027</div></div>
+    </div>
+    <div class="ov-in ov-cert">
+      <div class="ov-cert-badge" style="background:rgba(66,133,244,.12);color:#4285f4;border:1px solid rgba(66,133,244,.25)">GGL</div>
+      <div><div class="ov-cert-name" style="color:#4285f4">Google Gemini Certified</div><div class="ov-cert-meta">Google Certified -- Valid through 2028</div></div>
+    </div>
+    <div class="ov-in ov-cert">
+      <div class="ov-cert-badge" style="background:rgba(52,168,83,.12);color:#34a853;border:1px solid rgba(52,168,83,.25)">GDA</div>
+      <div><div class="ov-cert-name" style="color:#34a853">Google Advanced Data Analytics</div><div class="ov-cert-meta">Google Career Certificates -- Active</div></div>
+    </div>
+    <div class="ov-in ov-cert">
+      <div class="ov-cert-badge" style="background:rgba(0,51,141,.12);color:#4a90e2;border:1px solid rgba(0,51,141,.3)">KPM</div>
+      <div><div class="ov-cert-name" style="color:#4a90e2">KPMG Data Analytics Consulting</div><div class="ov-cert-meta">Forage Virtual Internship -- Completed</div></div>
+    </div>
+    <div class="ov-in ov-cert">
+      <div class="ov-cert-badge" style="background:rgba(217,48,37,.12);color:#d93025;border:1px solid rgba(217,48,37,.25)">PwC</div>
+      <div><div class="ov-cert-name" style="color:#d93025">PwC Power BI Virtual Case Experience</div><div class="ov-cert-meta">Forage Virtual Internship -- Completed</div></div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">In Progress</div>
+      <div class="ov-item">French B1 DELF -- Alliance Francaise Delhi (exam May 2026)</div>
+      <div class="ov-item">BBA Business Analytics -- SRM University (degree completion June 2026)</div>
+      <div class="ov-item">SQL Case Study on GitHub -- S&P 500 data with window functions and CTEs</div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">Oracle Cloud</span><span class="ov-tag">Google Gemini</span><span class="ov-tag">Google Analytics</span><span class="ov-tag">KPMG</span><span class="ov-tag">PwC</span><span class="ov-tag">Forage</span></div>
+  `;
+}
+
+function buildContent_Education(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Saturn -- Academic Background</div>
+    <div class="ov-in ov-heading">Education</div>
+    <div class="ov-in ov-sub">BBA Business Analytics with a quantitative core. The degree gave business vocabulary. Projects, certifications and work gave practical skills. Both matter for analytics at MNCs.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">7.91</div><div class="ov-stat-l">CGPA</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">B1</div><div class="ov-stat-l">French</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">3yr</div><div class="ov-stat-l">Duration</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">2026</div><div class="ov-stat-l">Graduating</div></div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">BBA -- Business Analytics</div>
+      <div class="ov-item">SRM Institute of Science and Technology, Delhi NCR -- Aug 2023 to Jun 2026</div>
+      <div class="ov-item">CGPA: 7.91 / 10.0 -- consistent across all semesters</div>
+      <div class="ov-item">Core: Statistics, Data Management, Business Intelligence, Ops Analytics, Financial Analytics</div>
+      <div class="ov-item">Electives: Machine Learning for Business, Strategic Management, Econometrics</div>
+      <div class="ov-item">University exams: May to June 2026 -- degree completion June 2026</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Diploma in French -- B1 Level</div>
+      <div class="ov-item">Alliance Francaise de Delhi -- ongoing since 2024</div>
+      <div class="ov-item">DELF B1 exam scheduled May 2026 (official French Ministry of Education cert)</div>
+      <div class="ov-item">Opens MBA programmes at HEC Paris, ESSEC, INSEAD alongside Canadian targets</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Why BBA Not BTech</div>
+      <div class="ov-item">Analytics at MNCs requires business judgment -- most BTech analysts lack this</div>
+      <div class="ov-item">I understand P&L, sales funnels, CRM and ops -- CS graduates typically do not</div>
+      <div class="ov-item">Technical skills (SQL, Python, Power BI) are self-taught and proven through live projects</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Post-Grad Plan</div>
+      <div class="ov-item">2 to 3 years: MNC analytics role -- build depth in enterprise BI and data strategy</div>
+      <div class="ov-item">2028 to 2030: Offline MBA -- Rotman (Toronto), Ivey (Western) or Desautels (McGill)</div>
+      <div class="ov-item">French B1 also opens HEC Paris, ESSEC and INSEAD (Europe)</div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">SRM University</span><span class="ov-tag">CGPA 7.91</span><span class="ov-tag">BBA</span><span class="ov-tag">French B1</span><span class="ov-tag">DELF</span><span class="ov-tag">Canada MBA</span><span class="ov-tag">HEC Paris</span></div>
+  `;
+}
+
+function buildContent_NIKAAi(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Uranus -- Flagship Project</div>
+    <div class="ov-in ov-heading">NIKA AI</div>
+    <div class="ov-in ov-sub">A full-stack AI analytics platform. Not a prototype. Deployed on Vercel with 20+ active institutional users running real performance data through it daily.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">20+</div><div class="ov-stat-l">Live Users</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">500+</div><div class="ov-stat-l">NIAT Pool</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">0</div><div class="ov-stat-l">Downtime</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">Full</div><div class="ov-stat-l">Stack</div></div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">What NIKA Does</div>
+      <div class="ov-item">User uploads any CSV or Excel dataset via drag-and-drop</div>
+      <div class="ov-item">Automated statistical analysis -- distributions, correlations, outliers, missing values</div>
+      <div class="ov-item">Gemini AI narrates findings in plain English -- no jargon, no technical barrier</div>
+      <div class="ov-item">Interactive dashboard renders charts, tables and KPI cards in real time</div>
+      <div class="ov-item">Export functionality -- download cleaned data and insights report</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Technical Architecture</div>
+      <div class="ov-item">Backend: Python / Flask -- REST API for upload, parsing, analysis, Gemini calls</div>
+      <div class="ov-item">Frontend: React -- component-based UI with dynamic chart rendering</div>
+      <div class="ov-item">AI Layer: Google Gemini API -- prompt-engineered for statistical narrative</div>
+      <div class="ov-item">Pipeline: upload then validate then clean then analyse then visualise (5 stages)</div>
+      <div class="ov-item">Deploy: Vercel (frontend) + cloud backend -- continuous deployment from GitHub</div>
+    </div>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">Impact and Context</div>
+      <div class="ov-item">20+ faculty and admin at SRM University use it for real institutional tracking</div>
+      <div class="ov-item">Replaced manual Excel pivot workflows for non-technical staff</div>
+      <div class="ov-item">Shortlisted at NIAT 2025 -- OpenAI x NxtWave national hackathon</div>
+      <div class="ov-item">Built using AI-assisted tooling -- honest framing, fully defensible in interviews</div>
+      <div class="ov-item">Note: free-tier Vercel may take 10-15 seconds to cold-start -- refresh once if blank</div>
+    </div>
+    <div class="ov-in ov-cta">
+      <a href="https://nika-ai-platform.vercel.app/" target="_blank" class="ov-btn-primary" style="background:${col};border-color:${col}">Open NIKA Live</a>
+      <a href="https://github.com/jaijaijai353/NIKA--main" target="_blank" class="ov-btn-secondary">GitHub</a>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">NIKA</span><span class="ov-tag">Gemini AI</span><span class="ov-tag">Flask</span><span class="ov-tag">React</span><span class="ov-tag">Python</span><span class="ov-tag">Vercel</span><span class="ov-tag">REST API</span><span class="ov-tag">ETL</span><span class="ov-tag">Live Product</span></div>
+  `;
+}
+
+function buildContent_Contact(col){
+  return `
+    <div class="ov-in ov-label"><span class="ov-label-dot" style="background:${col};color:${col}"></span>Neptune -- Contact</div>
+    <div class="ov-in ov-heading">Let's<br>Connect</div>
+    <div class="ov-in ov-sub">Open to Data Analyst and Business Analyst roles at MNCs. Degree completion June 2026. Delhi NCR preferred -- open to remote and relocation.</div>
+    <div class="ov-in ov-stats">
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">Jun</div><div class="ov-stat-l">Available</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">NCR</div><div class="ov-stat-l">Location</div></div>
+      <div class="ov-stat"><div class="ov-stat-n" style="color:${col}">Open</div><div class="ov-stat-l">To Work</div></div>
+    </div>
+    <a href="mailto:jai.narula08@gmail.com" class="ov-in ov-contact" style="--cc:${col}">
+      <div class="ov-contact-icon" style="background:rgba(234,67,53,.12);border:1px solid rgba(234,67,53,.25);color:#ea4335">@</div>
+      <div><div class="ov-contact-name">Email</div><div class="ov-contact-handle">jai.narula08@gmail.com</div></div>
+      <span class="ov-contact-arrow" style="color:${col}">--&gt;</span>
+    </a>
+    <a href="https://www.linkedin.com/in/jai-narula-aa3185242/" target="_blank" class="ov-in ov-contact" style="--cc:#0a66c2">
+      <div class="ov-contact-icon" style="background:rgba(10,102,194,.12);border:1px solid rgba(10,102,194,.25);color:#0a66c2">in</div>
+      <div><div class="ov-contact-name">LinkedIn</div><div class="ov-contact-handle">jai-narula-aa3185242</div></div>
+      <span class="ov-contact-arrow" style="color:#0a66c2">--&gt;</span>
+    </a>
+    <a href="https://github.com/jaijaijai353" target="_blank" class="ov-in ov-contact" style="--cc:#e0e0e0">
+      <div class="ov-contact-icon" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#e0e0e0">gh</div>
+      <div><div class="ov-contact-name">GitHub</div><div class="ov-contact-handle">github.com/jaijaijai353</div></div>
+      <span class="ov-contact-arrow" style="color:#e0e0e0">--&gt;</span>
+    </a>
+    <a href="tel:+917042426504" class="ov-in ov-contact" style="--cc:#00e5ff">
+      <div class="ov-contact-icon" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:#00e5ff">&#128222;</div>
+      <div><div class="ov-contact-name">Phone</div><div class="ov-contact-handle">+91 70424 26504</div></div>
+      <span class="ov-contact-arrow" style="color:#00e5ff">--&gt;</span>
+    </a>
+    <div class="ov-in ov-section">
+      <div class="ov-section-t" style="color:${col}">What I am Looking For</div>
+      <div class="ov-item">Data Analyst or Business Analyst -- entry level MNC</div>
+      <div class="ov-item">Genpact, EXL, Accenture, S&P Global, KPMG, Deloitte USI</div>
+      <div class="ov-item">Delhi NCR preferred -- open to Bengaluru, Hyderabad, Mumbai</div>
+      <div class="ov-item">Not interested in sales-facing or EdTech roles</div>
+    </div>
+    <div class="ov-in ov-tags"><span class="ov-tag">Degree completion June 2026</span><span class="ov-tag">Delhi NCR</span><span class="ov-tag">Data Analyst</span><span class="ov-tag">Business Analyst</span><span class="ov-tag">Open to Work</span></div>
+  `;
+}
+
+
+const SCENE_BUILDERS = [
+  buildScene_AboutMe, buildScene_Skills, buildScene_Projects,
+  buildScene_Experience, buildScene_Achievements, buildScene_Certifications,
+  buildScene_Education, buildScene_NIKAAi, buildScene_Contact
+];
+const CONTENT_BUILDERS = [
+  buildContent_AboutMe, buildContent_Skills, buildContent_Projects,
+  buildContent_Experience, buildContent_Achievements, buildContent_Certifications,
+  buildContent_Education, buildContent_NIKAAi, buildContent_Contact
+];
+
+// ============================================================
+// INJECT OVERLAY HTML + CSS (runs on load)
+// ============================================================
+(function injectOverlay(){
+
+  // -- INJECT CSS ---------------------------------------------
+  const style = document.createElement('style');
+  style.textContent = `
+/* ============================================================
+   FULL-SCREEN IMMERSIVE OVERLAY
+   ============================================================ */
+#overlay{
+  position:fixed;inset:0;z-index:200;
+  opacity:0;pointer-events:none;
+  transition:opacity .7s cubic-bezier(.22,1,.36,1);
+  font-family:'Exo 2',sans-serif;
+}
+#overlay.open{opacity:1;pointer-events:all}
+
+/* Canvas fills full left half */
+#ov-canvas-wrap{
+  position:absolute;inset:0;z-index:0;
+  background:#05060f;
+}
+#ov-canvas{width:100%;height:100%;display:block}
+
+/* Gradient mask - only fade on the right side */
+#ov-gradient{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(5,6,15,.6) 52%,
+    rgba(5,6,15,.92) 62%,
+    rgba(5,6,15,.98) 70%
+  );
+}
+
+/* -- CONTENT PANEL (right side) -- */
+#ov-panel{
+  position:absolute;
+  top:0;right:0;bottom:0;
+  width:46%;
+  z-index:10;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* Scrollable inner */
+#ov-content{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:3.5rem 3rem 4rem 2.5rem;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.12) transparent;
+}
+#ov-content::-webkit-scrollbar{width:3px}
+#ov-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:2px}
+
+/* Close button */
+#ov-close{
+  position:fixed;top:1.6rem;right:1.8rem;z-index:300;
+  width:38px;height:38px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.6);
+  border-radius:50%;
+  cursor:pointer;
+  font-size:1rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+  backdrop-filter:blur(12px);
+}
+#ov-close:hover{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.4);
+  color:#fff;
+  transform:rotate(90deg);
+}
+
+/* Planet indicator dot */
+#ov-planet-badge{
+  position:fixed;top:1.55rem;right:5rem;z-index:300;
+  display:flex;align-items:center;gap:.5rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  backdrop-filter:blur(12px);
+  pointer-events:none;
+}
+.ov-planet-dot{
+  width:7px;height:7px;border-radius:50%;
+  box-shadow:0 0 8px currentColor;
+}
+
+/* -- ENTRY ANIMATIONS -- */
+.ov-in{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),
+             transform .55s cubic-bezier(.22,1,.36,1);
+}
+.ov-in.visible{opacity:1;transform:none}
+
+/* Stagger delays */
+.ov-in:nth-child(1){transition-delay:.05s}
+.ov-in:nth-child(2){transition-delay:.1s}
+.ov-in:nth-child(3){transition-delay:.15s}
+.ov-in:nth-child(4){transition-delay:.2s}
+.ov-in:nth-child(5){transition-delay:.25s}
+.ov-in:nth-child(6){transition-delay:.3s}
+.ov-in:nth-child(7){transition-delay:.35s}
+.ov-in:nth-child(8){transition-delay:.4s}
+.ov-in:nth-child(9){transition-delay:.45s}
+.ov-in:nth-child(10){transition-delay:.5s}
+
+/* -- TYPOGRAPHY -- */
+.ov-label{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+  display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1rem;
+}
+.ov-label-dot{
+  width:5px;height:5px;border-radius:50%;flex-shrink:0;
+  box-shadow:0 0 6px currentColor;
+}
+.ov-heading{
+  font-family:'Orbitron',monospace;
+  font-weight:900;
+  font-size:clamp(1.9rem,3.8vw,3.2rem);
+  letter-spacing:-.01em;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:1.1rem;
+}
+.ov-sub{
+  font-size:.92rem;font-weight:300;
+  color:rgba(195,215,245,.6);
+  line-height:1.85;
+  margin-bottom:2rem;
+  max-width:480px;
+}
+
+/* -- STAT ROW -- */
+.ov-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));
+  gap:.55rem;margin-bottom:2rem;
+}
+.ov-stat{
+  padding:.9rem .75rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  text-align:center;
+  transition:background .2s,border-color .2s;
+}
+.ov-stat:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.ov-stat-n{
+  font-family:'Orbitron',monospace;font-weight:800;
+  font-size:1.45rem;line-height:1;margin-bottom:.25rem;
+}
+.ov-stat-l{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+
+/* -- SECTION GROUPS -- */
+.ov-section{
+  margin-bottom:1.8rem;
+  padding:1.2rem 1.4rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  transition:background .2s;
+}
+.ov-section:hover{background:rgba(255,255,255,.04)}
+.ov-section-t{
+  font-family:'Orbitron',monospace;font-weight:700;
+  font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:.85rem;
+  display:flex;align-items:center;gap:.55rem;
+  opacity:.85;
+}
+.ov-section-t::before{
+  content:'';width:18px;height:1px;
+  background:currentColor;opacity:.5;flex-shrink:0;
+}
+.ov-item{
+  display:flex;gap:.65rem;
+  font-size:.87rem;font-weight:300;
+  color:rgba(195,212,245,.7);
+  line-height:1.7;margin-bottom:.4rem;
+}
+.ov-item::before{
+  content:'-';
+  font-family:'Share Tech Mono',monospace;
+  font-size:.75rem;flex-shrink:0;
+  margin-top:.15rem;opacity:.45;
+}
+
+/* -- SKILL BARS -- */
+.ov-skill{margin-bottom:1rem}
+.ov-skill-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:.32rem;
+}
+.ov-skill-name{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.65rem;letter-spacing:.06em;
+  color:rgba(255,255,255,.75);
+}
+.ov-skill-pct{
+  font-family:'Orbitron',monospace;font-weight:700;
+  font-size:.62rem;
+}
+.ov-skill-note{
+  font-size:.72rem;font-weight:300;
+  color:rgba(170,195,235,.38);
+  margin-bottom:.28rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.55rem;letter-spacing:.04em;
+}
+.ov-bar-track{
+  height:2px;background:rgba(255,255,255,.07);
+  border-radius:2px;overflow:hidden;
+}
+.ov-bar-fill{
+  height:100%;width:0;border-radius:2px;
+  transition:width 1.4s cubic-bezier(.16,1,.3,1);
+  position:relative;
+}
+.ov-bar-fill::after{
+  content:'';position:absolute;right:0;top:-2px;
+  width:6px;height:6px;border-radius:50%;
+  background:inherit;box-shadow:0 0 8px currentColor;
+}
+
+/* -- PROJECT CARDS -- */
+.ov-project{
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;overflow:hidden;
+  margin-bottom:1.1rem;
+  background:rgba(255,255,255,.02);
+  transition:border-color .25s,transform .25s,background .25s;
+}
+.ov-project:hover{
+  border-color:rgba(255,255,255,.16);
+  background:rgba(255,255,255,.05);
+  transform:translateY(-2px);
+}
+.ov-project-head{
+  padding:.9rem 1.2rem;
+  display:flex;align-items:center;gap:.85rem;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.ov-project-icon{
+  width:38px;height:38px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',monospace;font-weight:800;
+  font-size:.75rem;flex-shrink:0;
+}
+.ov-project-title{
+  font-family:'Orbitron',monospace;font-weight:700;
+  font-size:.88rem;letter-spacing:.04em;margin-bottom:.15rem;
+}
+.ov-project-role{
+  font-family:'Share Tech Mono',monospace;font-size:.58rem;
+  letter-spacing:.08em;color:rgba(180,205,240,.5);text-transform:uppercase;
+}
+.ov-project-body{padding:.9rem 1.2rem}
+.ov-project-desc{
+  font-size:.85rem;font-weight:300;
+  color:rgba(190,210,245,.65);line-height:1.72;margin-bottom:.8rem;
+}
+.ov-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem}
+.ov-chip{
+  font-family:'Share Tech Mono',monospace;font-size:.53rem;
+  letter-spacing:.07em;padding:3px 9px;border-radius:100px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:rgba(180,210,255,.55);
+}
+.ov-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'Share Tech Mono',monospace;font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  padding:5px 14px;border-radius:6px;border:1px solid;
+  transition:all .2s;margin-right:.5rem;
+}
+.ov-link:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+
+/* -- TIMELINE -- */
+.ov-timeline{position:relative;padding-left:1.5rem;margin-bottom:1.4rem}
+.ov-timeline::before{
+  content:'';position:absolute;left:5px;top:10px;bottom:10px;
+  width:1px;background:linear-gradient(to bottom,rgba(255,255,255,.2),rgba(255,255,255,.04));
+}
+.ov-tl-item{position:relative;margin-bottom:1.4rem}
+.ov-tl-item::before{
+  content:'';position:absolute;left:-1.28rem;top:7px;
+  width:9px;height:9px;border-radius:50%;
+  border:1.5px solid currentColor;background:#05060f;
+}
+.ov-tl-co{
+  font-family:'Orbitron',monospace;font-weight:700;
+  font-size:.8rem;letter-spacing:.04em;margin-bottom:.18rem;
+}
+.ov-tl-role{
+  font-family:'Share Tech Mono',monospace;font-size:.58rem;
+  letter-spacing:.1em;opacity:.5;margin-bottom:.55rem;text-transform:uppercase;
+}
+.ov-tl-li{
+  font-size:.84rem;font-weight:300;
+  color:rgba(195,212,245,.68);line-height:1.68;margin-bottom:.25rem;
+}
+.ov-tl-li::before{content:'> ';opacity:.4;font-family:'Share Tech Mono',monospace}
+
+/* -- TROPHY CARDS -- */
+.ov-award{
+  display:flex;gap:1rem;padding:1rem 1.2rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;margin-bottom:.75rem;
+  transition:background .2s,border-color .2s;
+}
+.ov-award:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.ov-award-icon{
+  font-size:1.6rem;flex-shrink:0;
+  line-height:1;margin-top:.1rem;
+}
+.ov-award-title{
+  font-family:'Orbitron',monospace;font-weight:700;
+  font-size:.82rem;letter-spacing:.04em;margin-bottom:.22rem;
+}
+.ov-award-desc{
+  font-size:.82rem;font-weight:300;
+  color:rgba(185,208,240,.62);line-height:1.65;
+}
+
+/* -- CERT ROWS -- */
+.ov-cert{
+  display:flex;align-items:center;gap:1rem;
+  padding:.8rem 1rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;margin-bottom:.6rem;
+  transition:background .2s;
+}
+.ov-cert:hover{background:rgba(255,255,255,.05)}
+.ov-cert-badge{
+  width:40px;height:40px;border-radius:9px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Share Tech Mono',monospace;font-weight:700;
+  font-size:.72rem;letter-spacing:.04em;
+}
+.ov-cert-name{
+  font-family:'Orbitron',monospace;font-weight:600;
+  font-size:.76rem;letter-spacing:.04em;margin-bottom:.16rem;
+}
+.ov-cert-meta{
+  font-family:'Share Tech Mono',monospace;font-size:.57rem;
+  letter-spacing:.08em;color:rgba(175,200,238,.45);text-transform:uppercase;
+}
+
+/* -- VISION ROADMAP -- */
+.ov-roadmap{display:flex;flex-direction:column;gap:.7rem}
+.ov-road-node{
+  display:flex;gap:1rem;padding:1rem 1.2rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  transition:background .2s,border-color .2s;
+}
+.ov-road-node:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.ov-road-yr{
+  font-family:'Orbitron',monospace;font-weight:900;
+  font-size:.95rem;flex-shrink:0;width:56px;
+  text-align:center;padding-top:.1rem;
+}
+.ov-road-title{
+  font-family:'Orbitron',monospace;font-weight:600;
+  font-size:.76rem;letter-spacing:.04em;margin-bottom:.35rem;
+}
+.ov-road-li{
+  font-size:.82rem;font-weight:300;
+  color:rgba(190,210,245,.62);line-height:1.65;margin-bottom:.18rem;
+}
+.ov-road-li::before{content:'> ';opacity:.35;font-family:'Share Tech Mono',monospace}
+
+/* -- CONTACT CARDS -- */
+.ov-contact{
+  display:flex;align-items:center;gap:1rem;
+  padding:.9rem 1.1rem;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:11px;margin-bottom:.6rem;
+  text-decoration:none;
+  transition:all .22s;
+}
+.ov-contact:hover{
+  background:rgba(255,255,255,.06);
+  border-color:var(--cc,rgba(255,255,255,.25));
+  transform:translateX(5px);
+}
+.ov-contact-icon{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Share Tech Mono',monospace;font-weight:800;
+  font-size:.8rem;color:#fff;letter-spacing:.04em;
+}
+.ov-contact-name{
+  font-family:'Orbitron',monospace;font-weight:600;
+  font-size:.8rem;letter-spacing:.04em;color:#fff;margin-bottom:.16rem;
+}
+.ov-contact-handle{
+  font-family:'Share Tech Mono',monospace;font-size:.6rem;
+  letter-spacing:.06em;color:rgba(175,205,240,.45);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.ov-contact-arrow{
+  margin-left:auto;font-family:'Share Tech Mono',monospace;
+  font-size:.85rem;opacity:.4;flex-shrink:0;
+  transition:opacity .2s,transform .2s;
+}
+.ov-contact:hover .ov-contact-arrow{opacity:1;transform:translateX(4px)}
+
+/* -- TAGS -- */
+.ov-tags{
+  display:flex;flex-wrap:wrap;gap:.38rem;
+  margin-top:1.6rem;padding-top:1.4rem;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.ov-tag{
+  font-family:'Share Tech Mono',monospace;font-size:.55rem;
+  letter-spacing:.06em;padding:3px 10px;border-radius:100px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  color:rgba(185,212,255,.5);
+}
+
+/* -- CTA BUTTONS -- */
+.ov-cta{
+  display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem;
+}
+.ov-btn-primary{
+  font-family:'Share Tech Mono',monospace;font-size:.62rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:11px 22px;border-radius:8px;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+  transition:all .25s;color:#000;border:1px solid;font-weight:700;
+}
+.ov-btn-primary:hover{background:transparent!important;color:#fff!important}
+.ov-btn-secondary{
+  font-family:'Share Tech Mono',monospace;font-size:.62rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:11px 22px;border-radius:8px;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+  transition:all .25s;
+  background:transparent;border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.6);
+}
+.ov-btn-secondary:hover{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06)}
+
+/* -- RESPONSIVE -- */
+@media(max-width:820px){
+  #ov-panel{width:100%;background:linear-gradient(to top,rgba(5,6,15,.97) 65%,rgba(5,6,15,.7))}
+  #ov-gradient{opacity:.7}
+  #ov-content{padding:3.5rem 1.4rem 3rem}
+  .ov-heading{font-size:2rem}
+}
+`;
+  document.head.appendChild(style);
+
+  // -- INJECT HTML --------------------------------------------
+  const ov = document.createElement('div');
+  ov.id = 'overlay';
+  ov.innerHTML = `
+    <div id="ov-canvas-wrap"><canvas id="ov-canvas"></canvas></div>
+    <div id="ov-gradient"></div>
+    <div id="ov-panel">
+      <div id="ov-content"></div>
+    </div>
+    <div id="ov-planet-badge"><span class="ov-planet-dot" id="ov-badge-dot"></span><span id="ov-badge-label"></span></div>
+    <button id="ov-close" onclick="closeOverlay()" title="Close">&#x2715;</button>
+  `;
+  document.body.appendChild(ov);
+})();
+
+
+
+// ============================================================
+// OPEN / CLOSE OVERLAY
+// ============================================================
+function openOverlay(idx){
+  // Focus management for accessibility
+  const overlay = document.getElementById('overlay');
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'ov-badge-label');
+  try {
+    const p = P[idx];
+    if(!document.getElementById('overlay')){ console.error('OVERLAY: missing'); return; }
+    if(!document.getElementById('ov-canvas')){ console.error('CANVAS: missing'); return; }
+
+    // Update planet badge
+    const badge = document.getElementById('ov-badge-label');
+    const dot   = document.getElementById('ov-badge-dot');
+    if(badge) badge.textContent = p.name + ' -- ' + p.sec;
+    if(dot){ dot.style.background = p.col; dot.style.color = p.col; }
+
+    initOverlayRenderer();
+    if(!ovRenderer) return;
+
+    stopOverlayAnim();
+    ovScene = new THREE.Scene();
+    ovAnimFn = SCENE_BUILDERS[idx](ovScene, p.col);
+
+    // Build content
+    const contentEl = document.getElementById('ov-content');
+    if(contentEl){
+      contentEl.innerHTML = CONTENT_BUILDERS[idx](p.col);
+      // Scroll to top
+      contentEl.scrollTop = 0;
+      // Stagger animate all .ov-in children
+      setTimeout(()=>{
+        contentEl.querySelectorAll('.ov-in').forEach((el,i)=>{
+          setTimeout(()=>el.classList.add('visible'), 60+i*55);
+        });
+        // Animate skill bars
+        contentEl.querySelectorAll('.ov-bar-fill').forEach((bar,i)=>{
+          const pct = bar.dataset.pct;
+          setTimeout(()=>{ bar.style.width = pct+'%'; }, 300+i*60);
+        });
+      }, 80);
+    }
+
+    document.getElementById('overlay').classList.add('open');
+
+    let t = 0;
+    const animFn = ovAnimFn;
+    function loop(){
+      if(!ovScene || !ovCamera || !ovRenderer) return;
+      ovAF = requestAnimationFrame(loop);
+      t += 0.016;
+      try { if(animFn) animFn(t); } catch(e){ console.error('ANIM:',e); }
+      ovRenderer.render(ovScene, ovCamera);
+    }
+    loop();
+    ovCurrentIdx = idx;
+
+  } catch(err){
+    console.error('openOverlay FAILED idx='+idx+':', err.message, err.stack);
+  }
+}
+
+function closeOverlay(){
+  document.getElementById('overlay').classList.remove('open');
+  stopOverlayAnim();
+  // Dispose scene geometry/materials to prevent memory leak
+  if(ovScene){
+    // Thorough cleanup for memory management
+    if(ovScene) {
+      ovScene.traverse((obj) => {
+        if (obj.geometry) obj.geometry.dispose();
+        if (obj.material) {
+          if (Array.isArray(obj.material)) {
+            obj.material.forEach((m) => {
+              if (m.map) m.map.dispose();
+              if (m.dispose) m.dispose();
+            });
+          } else {
+            if (obj.material.map) obj.material.map.dispose();
+            if (obj.material.dispose) obj.material.dispose();
+          }
+        }
+      });
+    }
+    ovScene = null;
+  }
+  ovCurrentIdx = -1;
+  ovAnimFn = null;
+}
+
+// ESC to close
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeOverlay(); });
+
+</script>
+</body>
+</html>
